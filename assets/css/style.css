@@ -8,6 +8,10 @@ body{
 
 .navbar{
     background-color: #ad62aa;
+   
+    
+   
+   
 }
 
 .column {
@@ -26,3 +30,16 @@ margin: 10px;
 box-shadow: #22313f 10px 5px;
 
 }
+
+.logo {
+    width: 200px;
+    height: aut;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    
+  }
+
+ 
+  
