@@ -51,7 +51,7 @@ for (var i = 0; i < data.animals.length; i++) {
                 zip.text("Postal code: " + data.animals[i].contact.address.postcode);
                 listEl.append(zip);
                 var favBtn = $('<button>');
-                favBtn.addClass('button');
+                favBtn.addClass('button favBtn');
                 dogCard.append(favBtn);
                 var span = $('<span>');
                 span.addClass('icon');
@@ -60,17 +60,23 @@ for (var i = 0; i < data.animals.length; i++) {
                 icon.addClass('fa-regular fa-heart');
                 span.append(icon);
                 var viewBtn = $('<button>');
-                viewBtn.addClass('button');
+                viewBtn.addClass('button viewBtn');
                 viewBtn.text("view full bio");
                 dogCard.append(viewBtn);
-                
-                
                 searchResults.append(dogCard);
         }
 
 
                 
 }})
+
+var searchResults = $('#searchResults');
+searchResults.on('click', '.favBtn', function(){
+console.log($(this));
+$(this).children().children().toggleClass('fa-solid');
+
+})
+
 
     // dogFacts = {
         //     breeds: data.animals[i].breeds,
