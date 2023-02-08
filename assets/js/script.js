@@ -56,7 +56,7 @@ function searchFormSubmit(event) {
         var dogSize = $('#dog-size').val();
         var gender = $('#gender').val();
 
-        fetch(petFinderURL + '&size=small' + dogSize + '&age=' + dogAge + '&gender=' + gender + '&location=' + zipCode, { headers: { 'Authorization': 'Bearer ' + access_token } })
+        fetch(petFinderURL + '&size=' + dogSize + '&age=' + dogAge + '&gender=' + gender + '&location=' + zipCode, { headers: { 'Authorization': 'Bearer ' + access_token } })
                 .then(function (response) {
                         return response.json();
                 })
@@ -73,8 +73,7 @@ searchBtn.on('click', searchFormSubmit)
 // Pet finder
 var petFinderURL = 'https://api.petfinder.com/v2/animals?type=dog';
 var petFinderKey = "vlhqQw3I1th5yoCvFcQJDga3QwH9nYp3faRaS2SK3Ckw8vuHsi";
-var access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ2bGhxUXczSTF0aDV5b0N2RmNRSkRnYTNRd0g5bllwM2ZhUmFTMlNLM0Nrdzh2dUhzaSIsImp0aSI6IjQ4NDg0YjI3ZjNhMzcwMGUwM2ExMjdhMWVkZGYzZTBhN2JlN2E1NmZiZjdjNmVjMGJlNjg4ZGE5N2JiMzE4MDU1YTYxOTcyZjgxYTgyZTRlIiwiaWF0IjoxNjc1ODcyNDM1LCJuYmYiOjE2NzU4NzI0MzUsImV4cCI6MTY3NTg3NjAzNSwic3ViIjoiIiwic2NvcGVzIjpbXX0.C0HWrwMYf8DWtgv5Z4F95FFMdLJQtxmNSHDnrIxTpgPtjVYLtc37eTHHi7qnMwctbasROG-pmPrNE3-LyGZSQ4yTHAhwYZ6K5GGTPCltt9fMH5oQ19xmOMX7XLh2vsNmei8siolqyelQ8MbdeIMtUQPSCY3vmjmBnGTZU2l9_H-PZJwS72TcxiA0agNVGu_7ljq3bZjV8mk8jnzh1kcCcM4pLnUm_Osn8QOAMvXwHazZ3Fgtnpr-52vPcDWHC8bmQCUTF_1geeBl6WRiJUFCaVty4z4nYmsuN-x8WeVF6nQ0_O6PrhMMOsQz7M0DWpUe5eCu5GJmlsTSj8uGVXJUWg';
-
+var access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ2bGhxUXczSTF0aDV5b0N2RmNRSkRnYTNRd0g5bllwM2ZhUmFTMlNLM0Nrdzh2dUhzaSIsImp0aSI6IjkyYmNlN2M4OWQ2NzljMzI4NDkxYmRhMGVkNmZhMDZhMmI4MGI5YTAzNWU4MzFhMmJlMzI0ZmE5NDFhODQzMzkwOTMxOTE5MTEwOWYxOWY4IiwiaWF0IjoxNjc1ODc3MDQ0LCJuYmYiOjE2NzU4NzcwNDQsImV4cCI6MTY3NTg4MDY0NCwic3ViIjoiIiwic2NvcGVzIjpbXX0.ZOoLfbx2XCpbMmZDSfTIeOBmQgBjIVqpT3UiaxE48T6PuhVj96vaSPAzqbyXk4SSUHMM7OgsZjl9IMHtbc5Y1xcpJhK3icvZLlfBZpVx95A7AVr0Sg0oyU7trquwHt-W6aGrY6WkxLuEKqmKwt9J999fazrqEo0yfiy3RTESvAs7ptpvjOYRunrz1Gmj4pqHuaF_tjxHE3GpDdOf55KfE1Z_5nzNiUfaScQPPaDdTOMczRsrmzP_-ShIdldyIYzkdvFcsroDkYG6RPJXEOoOhspaFJ6x0Bw-YxMZ-e0LSTp-msDKGQw6ieCrd5lv3veTKOAcTLNq0bAv_znpvrsA8w';
 
 
 
