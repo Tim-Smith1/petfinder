@@ -11,7 +11,7 @@
 
 // //  nija dogs
 // var nijaDogKey = "mdyq9NKoVyj8PyZs+WRkkQ==IML8Igs43m66eDga"
-// var breed = "yorkshire terrier"
+// var breed = "yorkshire terrier";
 // var nijaDogURL = "https://api.api-ninjas.com/v1/dogs?name="+breed;
 
 // fetch(nijaDogURL, {headers:{'X-Api-Key': 'mdyq9NKoVyj8PyZs+WRkkQ==IML8Igs43m66eDga'}})

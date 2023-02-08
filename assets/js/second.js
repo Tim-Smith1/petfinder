@@ -8,7 +8,7 @@ var zipCode = searchParamsArr[3].split('=')[1];
 
 var petFinderURL = 'https://api.petfinder.com/v2/animals?type=dog';
 var petFinderKey = "vlhqQw3I1th5yoCvFcQJDga3QwH9nYp3faRaS2SK3Ckw8vuHsi";
-var access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ2bGhxUXczSTF0aDV5b0N2RmNRSkRnYTNRd0g5bllwM2ZhUmFTMlNLM0Nrdzh2dUhzaSIsImp0aSI6IjQ4YzkyN2FhYTY1NzQzZmI2MzMwMzNhNmVkODBlZDlhN2RlYjA4YWJhNDVkNjgwOWM2YTJmMTE1YzIwMGZkYjVkYWIzYzdmZTM2MDNkZWNmIiwiaWF0IjoxNjc1ODgwOTM2LCJuYmYiOjE2NzU4ODA5MzYsImV4cCI6MTY3NTg4NDUzNiwic3ViIjoiIiwic2NvcGVzIjpbXX0.KucJcBsu8LYBczavo7k1CHHDKJyIlwyTaHBEn7H4OyicxBupKP6GiTBe_9hf079b60cnq_CUSOg1UHI0Qj9OdFqJYdSoNQztCIIgHkamrTL0ToGrAia9sQ0ym7Q8jc1zCe8etw3LsCHBq81U4HTJitef3JXsNIPurkSPKlZyPR-J0Kd6atere0nvcS4c6Y61jss2RCAdkRdXc6hPgyp4BkEoDFeyovtCYr8yOFule5sgtxpH-f68HO0iAFLmd1lp-m_6aQhN0EoME3EoJSW0SY_B2ZI1BPPJZ5YqaKrm4fcwdnf3CEfPbibK9Jbf7CoZH-ZHnkCHiztGQr72PFWzew';
+var access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ2bGhxUXczSTF0aDV5b0N2RmNRSkRnYTNRd0g5bllwM2ZhUmFTMlNLM0Nrdzh2dUhzaSIsImp0aSI6IjJiZTgwZWFjNjE4MzIzYWVmYjBmNzZlYzc2YWNmNTJkNWJhYWY2Yjk3NTYxZjRkNWVkY2VkYmMxNTFkOWM2MTQyMTZmYTI3ZTUzNTMyNjUxIiwiaWF0IjoxNjc1ODg1MDc5LCJuYmYiOjE2NzU4ODUwNzksImV4cCI6MTY3NTg4ODY3OSwic3ViIjoiIiwic2NvcGVzIjpbXX0.N3-WcGP6TjwtGdaSZhR1hDPa7tnrar8xa2chgRALFuzV00SWU6Kn_gDgcmrmVpwBC4HJxnb8lawg9kEmiv5935XEEgJ4yY8WOPyQ5wSB3IT6gasR39u9CdStbolSC3TrCy_S5q-BVnK_UtRaaZ-b6TjXpgQAkKgbmI37MrYj5FkrTNL-BdGYfrmUKmX7aPeFiqHIUjH__iiLlB6ssi1QUYZG0p6a8nNiwmeLMYeZUrJvcBVUzTqvfh9klDt8ITTBEH0Lr1lp14h0ZSqHy78Q03ZFW5-gW6WJuJROMqRb2pc0F90Is0ImojUUYDVe3yaTO5v1VcmCoBXSfL1g4CqhCw';
 
 fetch(petFinderURL + '&size=' + dogSize + '&age=' + dogAge + '&gender=' + gender + '&location=' + zipCode, { headers: { 'Authorization': 'Bearer ' + access_token } })
         .then(function (response) {
@@ -18,14 +18,6 @@ fetch(petFinderURL + '&size=' + dogSize + '&age=' + dogAge + '&gender=' + gender
         console.log(data.animals);
 for (var i = 0; i < data.animals.length; i++) {
         
-        // dogFacts = {
-        //     breeds: data.animals[i].breeds,
-        //     attributes: data.animals[i].attributes,
-        //     contact: data.animals[i].contact,
-        //     name: data.animals[i].name,
-        //     picture: data.animals[i].primary_photo_cropped.medium,
-        //     environment: data.animals[i].environment,
-        // }
 var searchResults = $('#searchResults');
 
 var dogCard = $("<div>");
@@ -44,31 +36,34 @@ var dogInfo = $('<div>');
 dogInfo.addClass('card-content');
 dogCard.append(dogInfo);
 var dogName = $('<h2>');
+dogName.addClass('title is-4')
 dogName.text(data.animals[i].name);
 dogInfo.append(dogName);
 var listEl = $('<ul>');
 dogInfo.append(listEl);
 var breed = $('<li>');
-breed.text(data.animals[i].breeds.primary);
+breed.text("Primary breed: " + data.animals[i].breeds.primary);
 listEl.append(breed)
 var city = $('<li>');
 city.text = (data.animals[i].contact.address.city)
 listEl.append(city)
 var zip = $('<li>');
-zip.text(data.animals[i].contact.address.postcode);
+zip.text("Postal code: " + data.animals[i].contact.address.postcode);
 listEl.append(zip);
-
-
 searchResults.append(dogCard);
-
-
-
-
         
 }})
 
-
+    // dogFacts = {
+        //     breeds: data.animals[i].breeds,
+        //     attributes: data.animals[i].attributes,
+        //     contact: data.animals[i].contact,
+        //     name: data.animals[i].name,
+        //     picture: data.animals[i].primary_photo_cropped.medium,
+        //     environment: data.animals[i].environment,
+        // }
 
   
+
 
         
