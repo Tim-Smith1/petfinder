@@ -9,14 +9,77 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://bulma.io">
+            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+          </a>
+      
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+      
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item">
+              Home
+            </a>
+      
+            <a class="navbar-item">
+              Documentation
+            </a>    
+          </div>
+        </div>
+      </nav>
+    <div class="columns">
+        <div class="column is-one-quarter">
+          First column
+        </div>
+        <div class="column is-half">
+          <section class="block" id="search-form">
+            <h2 class="subtitle">Start your search here:</h2>
+            <input class="input" type="text" placeholder="zip code">
+            <div class="select">
+                <select id="dog-age">
+                  <option>Select age</option>
+                  <option value="baby">Baby</option>
+                  <option value="young">Young</option>
+                  <option val="adult">Adult</option>
+                  <option></option>
+                </select>
+            </div>
+            <div class="select">
+                <select id="dog-size">
+                  <option>Select size</option>
+                  <option value="small">Small</option>
+                  <option value="medium">Medium</option>
+                  <option value="large">Large</option>
+                </select>
+            </div>
+            <div class="select">
+                <select id="gender">
+                  <option>Select gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+            </div>
+            <button id="searchBtn" class="button" type="submit">Button</button>
+          </section>
+        </div>
+        <div class="column is-one-quarter">
+          Third column
+        </div>
+      </div>
+      
+
    
    
    
 
-    <h1>
-        Hello world!
-      </h1>
-    
+
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 
     <script src="./assets/js/script.js"></script>
