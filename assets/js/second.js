@@ -9,7 +9,7 @@ var zipCode = searchParamsArr[3].split('=')[1];
 
 var petFinderURL = 'https://api.petfinder.com/v2/animals?type=dog';
 var petFinderKey = "vlhqQw3I1th5yoCvFcQJDga3QwH9nYp3faRaS2SK3Ckw8vuHsi";
-var access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ2bGhxUXczSTF0aDV5b0N2RmNRSkRnYTNRd0g5bllwM2ZhUmFTMlNLM0Nrdzh2dUhzaSIsImp0aSI6IjEzY2MwYTNiMjliNGZhYzIwMDA0M2E1N2FmOTM0YjAzZTYwOGMyZDRjZjQ4ODRlZTY1Y2Q3MDcwNTA4YzNlMzZhNmI1YjE1NzQzMzM4ZWEwIiwiaWF0IjoxNjc1ODkyODE4LCJuYmYiOjE2NzU4OTI4MTgsImV4cCI6MTY3NTg5NjQxOCwic3ViIjoiIiwic2NvcGVzIjpbXX0.TiTomLx8Dpn0FkvvfS37NVRT9AbteSeyratotBef_OnE1f_Q4Jl066ZpytkDkszpCgu-7iZpS08f64KBBaGFhQM4s6A8pD1EjKe86Kf7gqy4662vq1gf1DS3sR2UrbqZAmoYRNJHt3Pt_cp8MWX5Kn4ZhDnZHbXyfLGeTKjaVhe6RIX6q-f2WS3LQKhedB-khw0SwpDXrf0eLczS_OdxlAd15N5pHAkVF7bPCGUu2xkF-tmoL2M1TdNCAVJQwKEP2K69WJVoFQNlQZX5tkruat8MqrDf2BaEXOGIYGlP6rfztGoKD8zBIgkoov5b0AWW4ZFmjwlfdCmEsI6oWc8NWw';
+var access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ2bGhxUXczSTF0aDV5b0N2RmNRSkRnYTNRd0g5bllwM2ZhUmFTMlNLM0Nrdzh2dUhzaSIsImp0aSI6IjdhYmZjOTlkOTljNzFjMWIxMmUzYjc1MTcwNTM0MTBmNTEyNGMzMDY1YWZhZWEyYjRkMWE2MTI4MzUwYTA1OThlNjA0MzA5NzkyMDNmZDg0IiwiaWF0IjoxNjc1ODk2ODY2LCJuYmYiOjE2NzU4OTY4NjYsImV4cCI6MTY3NTkwMDQ2Niwic3ViIjoiIiwic2NvcGVzIjpbXX0.AQPqzMODp-Lp036kGEE9BERehjVDXN5JU955hJqR0ih2pRljeye--jft6mmIaPLR0j6AGQDHysHqJ89qwz591Bhku7pEtI4BFqmzIn9auhfkKOKbIuIGrPwjSCI0RvAZFJ_mgdJOs6_5UvCVESjJXSDago-IvlxWG7BsR0Aeb4hbSJnKGm2NGt4X6_YYJNx1mrjgH4B_Wi0zk8ptijA_Tda5DkcLbTC6iZIOrahqvTU8OCl85JgO4VT_Fm6-wBBZrezT9zIgNPwL3EfoeZ3Lxdtae-Y-bjXaVymDl33Z8nkVMeprdXT9BZAcEL0gvG536HAJfBJsumqqh7Lf7V0tpw';
 
 fetch(petFinderURL + '&size=' + dogSize + '&age=' + dogAge + '&gender=' + gender + '&location=' + zipCode, { headers: { 'Authorization': 'Bearer ' + access_token } })
         .then(function (response) {
@@ -75,9 +75,6 @@ searchResults.on('click', '.favBtn', function(){
 console.log($(this));
 $(this).children().children().toggleClass('fa-solid');
 
-if ($(this).children().children().contains('fa-solid')) {
-        console.log("favorite");
-}
 
 })
 
