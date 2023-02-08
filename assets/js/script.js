@@ -1,34 +1,33 @@
 
-//  nija dogs
-var nijaDogKey = "mdyq9NKoVyj8PyZs+WRkkQ==IML8Igs43m66eDga"
-var breed = "yorkshire terrier"
-var nijaDogURL = "https://api.api-ninjas.com/v1/dogs?name="+breed;
+// //  nija dogs
+// var nijaDogKey = "mdyq9NKoVyj8PyZs+WRkkQ==IML8Igs43m66eDga"
+// var breed = "yorkshire terrier"
+// var nijaDogURL = "https://api.api-ninjas.com/v1/dogs?name="+breed;
 
-fetch(nijaDogURL, {headers:{'X-Api-Key': 'mdyq9NKoVyj8PyZs+WRkkQ==IML8Igs43m66eDga'}})
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-console.log(data);
-        });
+// fetch(nijaDogURL, {headers:{'X-Api-Key': 'mdyq9NKoVyj8PyZs+WRkkQ==IML8Igs43m66eDga'}})
+//         .then(function (response) {
+//             return response.json();
+//         })
+//         .then(function (data) {
+// console.log(data);
+//         });
 
-        var name = 'golden retriever'
+//         var name = 'golden retriever'
 
-$.ajax({
-    method: 'GET',
-    url: 'https://api.api-ninjas.com/v1/dogs?name=' + name,
-    headers: { 'X-Api-Key': 'T7QIScN/hE7tGLJqxcA8Aw==PVPfhpWBYaQG47WV'},
-    contentType: 'application/json',
-    success: function(result) {
-        console.log(result);
-    },
-    error: function ajaxError(jqXHR) {
-        console.error('Error: ', jqXHR.responseText);
-    }
-});
+// $.ajax({
+//     method: 'GET',
+//     url: 'https://api.api-ninjas.com/v1/dogs?name=' + name,
+//     headers: { 'X-Api-Key': 'T7QIScN/hE7tGLJqxcA8Aw==PVPfhpWBYaQG47WV'},
+//     contentType: 'application/json',
+//     success: function(result) {
+//         console.log(result);
+//     },
+//     error: function ajaxError(jqXHR) {
+//         console.error('Error: ', jqXHR.responseText);
+//     }
+// });
 
 
-//curl -d "grant_type=client_credentials&client_id={5PMCPqhNqHhJ0g5XCTR9ec4o6PWSrMEFZ6Dh9EcpSusg6YAqys}&client_secret={KObbObsjHVnqt4M2znIkRkogYckY71ibUD29b2CC}" https://api.petfinder.com/v2/oauth2/token
 // relevant data:
 // breedFacts = {
 //         barking: data[0].barking,
@@ -46,25 +45,47 @@ $.ajax({
 //         trainability: data[0].trainability 
 // }
 
+var searchBtn = $('#searchBtn');
 
 
+
+function searchFormSubmit(event) {
+        event.preventDefault();
+        var zipCode = $('.input').val();
+        var dogAge = $('#dog-age').val();
+        var dogSize = $('#dog-size').val();
+        var gender = $('#gender').val();
+
+        fetch(petFinderURL + '&size=small' + dogSize + '&age=' + dogAge + '&gender=' + gender + '&location=' + zipCode, { headers: { 'Authorization': 'Bearer ' + access_token } })
+                .then(function (response) {
+                        return response.json();
+                })
+                .then(function (data) {
+
+                        console.log(data);
+                })
+
+}
+
+searchBtn.on('click', searchFormSubmit)
 
 
 // Pet finder
-var petFinderURL = 'https://api.petfinder.com/v2/animals';
+var petFinderURL = 'https://api.petfinder.com/v2/animals?type=dog';
 var petFinderKey = "vlhqQw3I1th5yoCvFcQJDga3QwH9nYp3faRaS2SK3Ckw8vuHsi";
-var access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ2bGhxUXczSTF0aDV5b0N2RmNRSkRnYTNRd0g5bllwM2ZhUmFTMlNLM0Nrdzh2dUhzaSIsImp0aSI6IjZiMGM4NDhhZGNkZWQyODAyMjFmZGJiNDU0YTM1NTJhMzYzZTI0ZWFhY2Y4NjhmNmY2MDhhNTdkYjkxOGJmNjhmODg3NmJkYjk4ZmEwNzNiIiwiaWF0IjoxNjc1Nzg5NjkyLCJuYmYiOjE2NzU3ODk2OTIsImV4cCI6MTY3NTc5MzI5MSwic3ViIjoiIiwic2NvcGVzIjpbXX0.Yxi0UgDzrXX7ST1MjMHhNE_AqPKH8QelWDvhNHVHXh7CnBUZLeJlTVRgeKReP0GSDSmJ-i9UExY1gneY8YDGWIwj3T8KEVq3GO7Te6kbd2sb4YFc253lCaBr0DYVHrnYwK-PNxt7Ue5VwR7AzjU3E5SSJT3buS-7RJJXX8y34X2fqi2pFAjdiJybSkFvcnMqDiaiJjPS5xsSqvyPN3_VIDy8Rmk2jG2P7LmuQWASC2BfGihlW_aIj0O2EJ0M7ck399vujY6HyAcrtag0nHQic61zAb-9SAH2HyuDr0hxg79JY_J0BTLlM9zLIdkuM1WR5IieXC74JM2NgQBox8T4yA';
-var postalCode = "60622";
-fetch(petFinderURL + '?location='+ postalCode, {headers:{'Authorization': 'Bearer ' + access_token}})
-.then(function (response) {
-    return response.json();
-})
-.then(function (data) {
+var access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ2bGhxUXczSTF0aDV5b0N2RmNRSkRnYTNRd0g5bllwM2ZhUmFTMlNLM0Nrdzh2dUhzaSIsImp0aSI6IjQ4NDg0YjI3ZjNhMzcwMGUwM2ExMjdhMWVkZGYzZTBhN2JlN2E1NmZiZjdjNmVjMGJlNjg4ZGE5N2JiMzE4MDU1YTYxOTcyZjgxYTgyZTRlIiwiaWF0IjoxNjc1ODcyNDM1LCJuYmYiOjE2NzU4NzI0MzUsImV4cCI6MTY3NTg3NjAzNSwic3ViIjoiIiwic2NvcGVzIjpbXX0.C0HWrwMYf8DWtgv5Z4F95FFMdLJQtxmNSHDnrIxTpgPtjVYLtc37eTHHi7qnMwctbasROG-pmPrNE3-LyGZSQ4yTHAhwYZ6K5GGTPCltt9fMH5oQ19xmOMX7XLh2vsNmei8siolqyelQ8MbdeIMtUQPSCY3vmjmBnGTZU2l9_H-PZJwS72TcxiA0agNVGu_7ljq3bZjV8mk8jnzh1kcCcM4pLnUm_Osn8QOAMvXwHazZ3Fgtnpr-52vPcDWHC8bmQCUTF_1geeBl6WRiJUFCaVty4z4nYmsuN-x8WeVF6nQ0_O6PrhMMOsQz7M0DWpUe5eCu5GJmlsTSj8uGVXJUWg';
 
-    console.log(data);
-})
+
+
+
 
 // relavant data:
 // petFinderInfo = {
 
 // }
+
+// var dogFacts = {
+// age: data[i].age,
+// breeds:  
+// }
+
