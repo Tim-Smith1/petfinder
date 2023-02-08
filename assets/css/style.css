@@ -1,0 +1,28 @@
+body{
+    background: linear-gradient(#4a47a3, #22313f);
+    color: white;
+    font-size: 25px;
+    font-family: 'Gentium Book Plus', serif;
+    
+}
+
+.navbar{
+    background-color: #ad62aa;
+}
+
+.column {
+    display: block;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding: 20px;
+    margin: 20px;
+
+}
+
+.card{
+
+margin: 10px;
+box-shadow: #22313f 10px 5px;
+
+}
