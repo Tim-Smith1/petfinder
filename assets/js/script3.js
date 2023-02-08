@@ -5,8 +5,8 @@
 // var breed = 'pitbull';
 
 var nijaDogKey = "oeZRCFASXWqpKLVdC4S1qg==0vv7FTjSoPeONrA6"
-var breed = "3"
-var nijaDogURL = "https://api.api-ninjas.com/v1/dogs?energy="+breed;
+var breed = "10"
+var nijaDogURL = "https://api.api-ninjas.com/v1/dogs?offset="+breed;
 
 fetch(nijaDogURL, {headers:{'X-Api-Key': 'oeZRCFASXWqpKLVdC4S1qg==0vv7FTjSoPeONrA6'}})
         .then(function (response) {
