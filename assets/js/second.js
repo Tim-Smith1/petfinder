@@ -75,6 +75,10 @@ searchResults.on('click', '.favBtn', function(){
 console.log($(this));
 $(this).children().children().toggleClass('fa-solid');
 
+if ($(this).children().children().contains('fa-solid')) {
+        console.log("favorite");
+}
+
 })
 
 
