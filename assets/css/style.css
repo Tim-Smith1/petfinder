@@ -8,10 +8,10 @@ body{
 
 .navbar{
     background-color: #ad62aa;
-    margin: auto;
-    height: 100px;
-    width: auto;
-    align-items:center;
+   
+    
+   
+   
 }
 
 .column {
@@ -33,10 +33,11 @@ box-shadow: #22313f 10px 5px;
 
 .logo {
     width: 200px;
-    height: 200px;
+    height: aut;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    
     
   }
 
