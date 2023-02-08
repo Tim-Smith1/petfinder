@@ -14,10 +14,11 @@
 
 </head>
 <body>
-    
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-          <img src="./assets/PetsNearU-removebg-preview.png" class="logo">
+          <a class="navbar-item" href="https://bulma.io">
+            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+          </a>
           <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
@@ -40,44 +41,16 @@
         <div class="column is-one-quarter">Search for Dogs
             <form class="box">
                 <div class="field">
-                  <label class="label">Filters</label>
+                  <label class="label">Breed</label>
                   <div class="control">
                     <input class="input" type="dogType" placeholder="Golden Retriever">
                   </div>
                 </div>          
-                <section class="block" id="search-form">
-                   
-                    <input class="input" type="text" placeholder="zip code">
-                    <div class="select">
-                        <select id="dog-age">
-                          <option>Select age</option>
-                          <option value="baby">Baby</option>
-                          <option value="young">Young</option>
-                          <option val="adult">Adult</option>
-                          <option></option>
-                        </select>
-                    </div>
-                    <div class="select">
-                        <select id="dog-size">
-                          <option>Select size</option>
-                          <option value="small">Small</option>
-                          <option value="medium">Medium</option>
-                          <option value="large">Large</option>
-                        </select>
-                    </div>
-                    <div class="select">
-                        <select id="gender">
-                          <option>Select gender</option>
-                          <option value="male">Male</option>
-                          <option value="female">Female</option>
-                        </select>
-                    </div>
-                    
-                  </section>
-                <button class="button is-black">Search</button>
+                
+                <button class="button is-primary">Search</button>
               </form>
         </div>
-            <div class="column">
+            <div class="column">Auto
 
                 <div class="card">
                     <div class="card-image">
@@ -139,7 +112,7 @@
 
 
 
-            <div class="column">
+            <div class="column">Auto
 
                 <div class="card">
                     <div class="card-image">
