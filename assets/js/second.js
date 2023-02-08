@@ -59,6 +59,10 @@ for (var i = 0; i < data.animals.length; i++) {
                 var icon = $('<i>')
                 icon.addClass('fa-regular fa-heart');
                 span.append(icon);
+                var viewBtn = $('<button>');
+                viewBtn.addClass('button');
+                viewBtn.text("view full bio");
+                dogCard.append(viewBtn);
                 
                 
                 searchResults.append(dogCard);
