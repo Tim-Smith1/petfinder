@@ -56,14 +56,16 @@ function searchFormSubmit(event) {
         var dogSize = $('#dog-size').val();
         var gender = $('#gender').val();
 
-        fetch(petFinderURL + '&size=' + dogSize + '&age=' + dogAge + '&gender=' + gender + '&location=' + zipCode, { headers: { 'Authorization': 'Bearer ' + access_token } })
-                .then(function (response) {
-                        return response.json();
-                })
-                .then(function (data) {
+        location.href= './secondpage.html?' + 'size=' + dogSize + '&age=' + dogAge + '&gender=' + gender + '&location=' + zipCode;
 
-                        console.log(data);
-                })
+        // fetch(petFinderURL + '&size=' + dogSize + '&age=' + dogAge + '&gender=' + gender + '&location=' + zipCode, { headers: { 'Authorization': 'Bearer ' + access_token } })
+        //         .then(function (response) {
+        //                 return response.json();
+        //         })
+        //         .then(function (data) {
+
+        //                 console.log(data);
+        //         })
 
 }
 
