@@ -21,7 +21,7 @@ for (var i = 0; i < data.animals.length; i++) {
 var searchResults = $('#searchResults');
 
 var dogCard = $("<div>");
-dogCard.addClass('card');
+dogCard.addClass('card dogCards');
 var dogImg = $('<div>');
 dogImg.addClass('card-image')
 dogCard.append(dogImg);
