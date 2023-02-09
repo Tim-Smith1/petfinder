@@ -75,7 +75,7 @@ var searchParamsArr = document.location.search.split('&');
 console.log(searchParamsArr);
 var dogID = searchParamsArr[0].split('=')[1];
 var petFinderKey = "vlhqQw3I1th5yoCvFcQJDga3QwH9nYp3faRaS2SK3Ckw8vuHsi&client_secret=0lu8umPP2fDm04fyPgehlUvX8qObWDU2wT5jMUQH";
-var access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ2bGhxUXczSTF0aDV5b0N2RmNRSkRnYTNRd0g5bllwM2ZhUmFTMlNLM0Nrdzh2dUhzaSIsImp0aSI6IjdjNWQyMGQwNTE5Mjc1MDg4YzM2OWY2NzFkYjU0ZGE1MTlhYjJjMGJhYzIyNTBkNzVjNDQ3NmJmNjA3OGE3ODZlOWIxZWNiY2RmNzI1MjQxIiwiaWF0IjoxNjc1OTY0NTAwLCJuYmYiOjE2NzU5NjQ1MDAsImV4cCI6MTY3NTk2ODEwMCwic3ViIjoiIiwic2NvcGVzIjpbXX0.TU2_iGHWpXid7QZYmCP-QlOwZyuT0nLMqgDk54Thd0qJ8rTLVLzK8iNidD9ihOb5KOIXYv7-2ylWxeinir03KeZUcpxe9RyVc66jH865WVWi434hiB0IXDENbtVBvSFhbdDNdvaFV4Sl92J79983stEU4bWpiZUzlEIsu5oPcUeUd4cVdJZNti3N-uINRzRt9qmhtMO2NuMcEnh9AqaP8LSSgIiUvYqGzdZBAi_CkmIcLqqSLGO-FWb0IsAkVziYOOUobPYSLA28uUpM6PCQf0nuaYAW0Hbt2bjDKzHKQF29M9eep98RcH3Ip4lZI7ww7QJKUa8gm0zI6etkQEXEyQ';
+var access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ2bGhxUXczSTF0aDV5b0N2RmNRSkRnYTNRd0g5bllwM2ZhUmFTMlNLM0Nrdzh2dUhzaSIsImp0aSI6IjdmOGVhMThkMDQ3YTZkNWE4YjlhN2IyY2U1MTk1NDM0NWQwMmI2Y2Y1N2YwYTgxZDFkNTY2YzdmZTVhMGE5ODcxNzIwYWU4ZDhjZmY1ZDU4IiwiaWF0IjoxNjc1OTY3OTc2LCJuYmYiOjE2NzU5Njc5NzYsImV4cCI6MTY3NTk3MTU3Niwic3ViIjoiIiwic2NvcGVzIjpbXX0.AEcQqW-DD-o2svK2C4bbQL4LOhnbe69niZSd_apQaDjzyzH91X8mfOMJfRzdgI5RUB7NI3VJ5j_nXwZuTRJl4g3JgpDBeXRPIxogppCQDw2R85ueGQza8hn6sMnum2_Ra8kBFjMwKWs-vtv0aSSc1DvWrbxjm77bN-104sqQqgQ39I1SccvW6I1fGMI2TPreY2-NjHZUqxJwDrNtCp3Gal3uNsCSn7jEmGRy7WX3wYJRc22i6sqw52wE3fY1H6BU30fwHHl85KG8XOEsl5AyH7Dp-_oFu6CstFQzR_MNnRyI1sqn32gqGobqUFwVAcPKE2-9DpVgXFRaLXcbesf2G';
 
 var petFinderOneURL = 'https://api.petfinder.com/v2/animals/' + dogID;
 fetch(petFinderOneURL, { headers: { 'Authorization': 'Bearer ' + access_token } })
@@ -96,3 +96,6 @@ fetch(petFinderOneURL, { headers: { 'Authorization': 'Bearer ' + access_token } 
 
 
         })
+
+
+        
