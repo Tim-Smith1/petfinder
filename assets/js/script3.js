@@ -75,7 +75,7 @@ var searchParamsArr = document.location.search.split('&');
 console.log(searchParamsArr);
 var dogID = searchParamsArr[0].split('=')[1];
 var petFinderKey = "vlhqQw3I1th5yoCvFcQJDga3QwH9nYp3faRaS2SK3Ckw8vuHsi&client_secret=0lu8umPP2fDm04fyPgehlUvX8qObWDU2wT5jMUQH";
-var access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ2bGhxUXczSTF0aDV5b0N2RmNRSkRnYTNRd0g5bllwM2ZhUmFTMlNLM0Nrdzh2dUhzaSIsImp0aSI6IjdmOGVhMThkMDQ3YTZkNWE4YjlhN2IyY2U1MTk1NDM0NWQwMmI2Y2Y1N2YwYTgxZDFkNTY2YzdmZTVhMGE5ODcxNzIwYWU4ZDhjZmY1ZDU4IiwiaWF0IjoxNjc1OTY3OTc2LCJuYmYiOjE2NzU5Njc5NzYsImV4cCI6MTY3NTk3MTU3Niwic3ViIjoiIiwic2NvcGVzIjpbXX0.AEcQqW-DD-o2svK2C4bbQL4LOhnbe69niZSd_apQaDjzyzH91X8mfOMJfRzdgI5RUB7NI3VJ5j_nXwZuTRJl4g3JgpDBeXRPIxogppCQDw2R85ueGQza8hn6sMnum2_Ra8kBFjMwKWs-vtv0aSSc1DvWrbxjm77bN-104sqQqgQ39I1SccvW6I1fGMI2TPreY2-NjHZUqxJwDrNtCp3Gal3uNsCSn7jEmGRy7WX3wYJRc22i6sqw52wE3fY1H6BU30fwHHl85KG8XOEsl5AyH7Dp-_oFu6CstFQzR_MNnRyI1sqn32gqGobqUFwVAcPKE2-9DpVgXFRaLXcbesf2G';
+var access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ2bGhxUXczSTF0aDV5b0N2RmNRSkRnYTNRd0g5bllwM2ZhUmFTMlNLM0Nrdzh2dUhzaSIsImp0aSI6ImQyMmUzYThmMmE1NGRjN2NkOTM1NmEwOGQyNTZjOWU5MmI2MTMzOGRmNTRmZDJmNTQ4NzQzYWZmMThjZGJhMDkzZDU3OGRkODYxOTRkMmM4IiwiaWF0IjoxNjc1OTcxNzA0LCJuYmYiOjE2NzU5NzE3MDQsImV4cCI6MTY3NTk3NTMwNCwic3ViIjoiIiwic2NvcGVzIjpbXX0.cLj4NLIa9KigVSd6pI2VeLmpX4g10RU6JZT1NMoTE98tWeWoWHMSohvkA71Q1lOqybPDIpFuk9VJ9kXGltLlJfqqtCueqZuWqnzjBCqbbWiLe24-rMz-ZhbbnSXei-PEpX-auvuX7OQ8lXw3N71ZdNiHvO35MEv_BAPVpI3trjMDOB1mA7gmNbsdmWArV8GJcisnMATGwDv6F3p5EN_r-tPRFSfCp2fmJkFyZXej3Tz8VVATMd6-hEzpwhsmMYckF2hqwGBNQYCWZkKBIL3S37BvTR0pLXJetB9IJVNRSX3-wkx4_-kRjxI4Y1N0zVLFXN8R20IoNQ5v1kBd_aoD4g';
 
 var petFinderOneURL = 'https://api.petfinder.com/v2/animals/' + dogID;
 fetch(petFinderOneURL, { headers: { 'Authorization': 'Bearer ' + access_token } })
@@ -86,11 +86,27 @@ fetch(petFinderOneURL, { headers: { 'Authorization': 'Bearer ' + access_token } 
                 console.log(data);
 
         ///seleted dog center image
-
-
+        //var dogImg = document.getElementById('dog-pic')
+        //dogimg.myImg = (data.animal.primary_photo_cropped.medium);
 
         ////selected dog info
 
+
+       // var dogCard = $("<div>");
+        // dogCard.addClass('card dogCards');
+        // dogCard.attr('data-id', data.animal.id);
+
+        var dogName = $('<dog-name>');
+        
+        dogName.textContent = (data.animal.name);
+
+        var dogDesc = document.getElementById('dog-info');
+        dogDesc.textContent = (data.animal.description);
+
+        var dogBreed = document.getElementById('dog-breed');
+        dogBreed.textContent = (data.animal.size);
+        console.log(data.animal.size);
+        
 
 
 
