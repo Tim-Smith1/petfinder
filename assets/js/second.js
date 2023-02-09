@@ -9,7 +9,7 @@ var zipCode = searchParamsArr[3].split('=')[1];
 
 var petFinderURL = 'https://api.petfinder.com/v2/animals?type=dog';
 var petFinderKey = "vlhqQw3I1th5yoCvFcQJDga3QwH9nYp3faRaS2SK3Ckw8vuHsi";
-var access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ2bGhxUXczSTF0aDV5b0N2RmNRSkRnYTNRd0g5bllwM2ZhUmFTMlNLM0Nrdzh2dUhzaSIsImp0aSI6IjY0ZDg2NTY3MTljMTljYzc1OTgyZDI2NmFiNzY1OTk0MzVmOWRmNDU0NTY0YzMxNThhYTBlMzI4ZDIzNWZmMmNkMDk5NTllZjgzNWQ4NmYyIiwiaWF0IjoxNjc1OTA1ODM0LCJuYmYiOjE2NzU5MDU4MzQsImV4cCI6MTY3NTkwOTQzNCwic3ViIjoiIiwic2NvcGVzIjpbXX0.in6Sxyjg0Az6nj3yGGPjiatSGseJPaoxIqWuVe5KraebbTlm1gMTDZUbJywKUazg2qjXsC75xxYjlvDUeWNj6lM3GC1zRVlp_-ZWSBtbVtKZ7ATiCNy6ooLpnx1R_oX85I12RHMtEJOOy5LDF9qQhCFrra3TRPwPUE9zjfRkfj7HksLIYf9pGiBvnW6plj44tiFjNmuUkTpLBcKf_5hzatH_q-w5aDoEdGhZq0oW7DWAy77wKYELSb6DtB-wvnbNOLSqAOGX4biNLF9JjxWbAxfYhnM8b8wnqEQFaNEwoPbgY3ZgyeoJpzug6Gj0X1CzwN2z3Y0RqdjvhXPj1JcM3A';
+var access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ2bGhxUXczSTF0aDV5b0N2RmNRSkRnYTNRd0g5bllwM2ZhUmFTMlNLM0Nrdzh2dUhzaSIsImp0aSI6ImEwYzhkMTcwNTRlZDIyY2Q1MGVmMGMxMzJiZTYxMzBkNTM4ZWRhZWU2YWE4OWM0ZThiZGVlZjc2NjU3NGQ5ODAyYTE4NmE2NDFkYmZmMmJmIiwiaWF0IjoxNjc1OTU2ODE0LCJuYmYiOjE2NzU5NTY4MTQsImV4cCI6MTY3NTk2MDQxNCwic3ViIjoiIiwic2NvcGVzIjpbXX0.HokvqiIBTyCw8u4rBQBD6jn5O-dyT4MFaKAcLeZUQBwlXRjD8HKW_Q5Fo7eVTi15prvvqXcaeiH1HG13q0bAOgcHcVsBUKi1zalxr8rNb6HDBX-XZ1E6YAEt9B8RKTSHPRw8LKQQnsbhrcs_sMPfM4lNnfI-4at84PZKoEWBEvWcRjj0TA6fl84I-OEu42PbE2gggNQgyvqSxNQuQUzpiN8pZHT0Kbu8jOyfBMT-h3MzSY4hZxrY8N1NH8snV1sLpsJ4FTrN3EuBEkvaMkdjL_V9bZ4HBXyEXVmGXATehxnY7jBe1s_du4_o8Urbg8flSsYv0gcg-A3_4XIXi9Xghw';
 
 fetch(petFinderURL + '&size=' + dogSize + '&age=' + dogAge + '&gender=' + gender + '&location=' + zipCode, { headers: { 'Authorization': 'Bearer ' + access_token } })
         .then(function (response) {
@@ -95,14 +95,17 @@ function saveFavorites() {
         localStorage.setItem("favorites", JSON.stringify(favorites));
 }
 
-// var petFinderOneURL = 'https://api.petfinder.com/v2/animals/' + dogID;
-// fetch(petFinderOneURL, { headers: { 'Authorization': 'Bearer ' + access_token } })
-//         .then(function (response) {
-//                 return response.json();
-//         })
-//         .then(function (data) {
-//                 console.log(data);
-//         })
+
+searchResults.on('click', '.viewBtn', function (){
+        var dogID = $(this).parent().attr("data-id");
+        location.href = './thirdpage.html?' + 'id=' + dogID;
+});
+
+        
+
+
+
+
 
 
 
