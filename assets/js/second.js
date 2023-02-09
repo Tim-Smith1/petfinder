@@ -9,7 +9,7 @@ var zipCode = searchParamsArr[3].split('=')[1];
 
 var petFinderURL = 'https://api.petfinder.com/v2/animals?type=dog';
 var petFinderKey = "vlhqQw3I1th5yoCvFcQJDga3QwH9nYp3faRaS2SK3Ckw8vuHsi";
-var access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ2bGhxUXczSTF0aDV5b0N2RmNRSkRnYTNRd0g5bllwM2ZhUmFTMlNLM0Nrdzh2dUhzaSIsImp0aSI6IjkwNzY3MTEyYmY4MzAwNDljNDZlMDZhNDM2ODBkNTllMDc3MTYxZjhjNTg2YmE4NjdlODhiMzhkMmVkMjJlYTUxZDYwZTE0YWY1MzA0ZGQwIiwiaWF0IjoxNjc1OTE5OTE0LCJuYmYiOjE2NzU5MTk5MTQsImV4cCI6MTY3NTkyMzUxNCwic3ViIjoiIiwic2NvcGVzIjpbXX0.VqHQxHrg9sjRn5eXXjmsXIqUlAQXYD3TvdF9U0Cd5YcUE_HyaAnrxxrw1XDWxuw4o7VaORcpHlQA3zXUz8x1k_4Whet3A9VuI92hV76qNC7y8uAKUcORZYRJqTZrZp5Ap9u57MujAHmuOBaKRtKeEvynpSTeZbklugEwUYddcO-_obwRDas0-kmIV3Gi3BEVtqFygA9qn3LPDDDsQ1B9MWgvBvs4hl9bIvv-2FDGGnmKejJd0Hh3lUyy1wB0XVQGAr9WJ7btDJ9EL6kKNiJquRCnPI7tDAApkWURzEFkVd_o3btFo-XEP7lX--_mYJTaToeNAdqDjhM3jU-IVFIspw';
+var access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ2bGhxUXczSTF0aDV5b0N2RmNRSkRnYTNRd0g5bllwM2ZhUmFTMlNLM0Nrdzh2dUhzaSIsImp0aSI6ImEwYzhkMTcwNTRlZDIyY2Q1MGVmMGMxMzJiZTYxMzBkNTM4ZWRhZWU2YWE4OWM0ZThiZGVlZjc2NjU3NGQ5ODAyYTE4NmE2NDFkYmZmMmJmIiwiaWF0IjoxNjc1OTU2ODE0LCJuYmYiOjE2NzU5NTY4MTQsImV4cCI6MTY3NTk2MDQxNCwic3ViIjoiIiwic2NvcGVzIjpbXX0.HokvqiIBTyCw8u4rBQBD6jn5O-dyT4MFaKAcLeZUQBwlXRjD8HKW_Q5Fo7eVTi15prvvqXcaeiH1HG13q0bAOgcHcVsBUKi1zalxr8rNb6HDBX-XZ1E6YAEt9B8RKTSHPRw8LKQQnsbhrcs_sMPfM4lNnfI-4at84PZKoEWBEvWcRjj0TA6fl84I-OEu42PbE2gggNQgyvqSxNQuQUzpiN8pZHT0Kbu8jOyfBMT-h3MzSY4hZxrY8N1NH8snV1sLpsJ4FTrN3EuBEkvaMkdjL_V9bZ4HBXyEXVmGXATehxnY7jBe1s_du4_o8Urbg8flSsYv0gcg-A3_4XIXi9Xghw';
 
 
 fetch(petFinderURL + '&size=' + dogSize + '&age=' + dogAge + '&gender=' + gender + '&location=' + zipCode, { headers: { 'Authorization': 'Bearer ' + access_token } })
@@ -96,14 +96,17 @@ function saveFavorites() {
         localStorage.setItem("favorites", JSON.stringify(favorites));
 }
 
-// var petFinderOneURL = 'https://api.petfinder.com/v2/animals/' + dogID;
-// fetch(petFinderOneURL, { headers: { 'Authorization': 'Bearer ' + access_token } })
-//         .then(function (response) {
-//                 return response.json();
-//         })
-//         .then(function (data) {
-//                 console.log(data);
-//         })
+
+searchResults.on('click', '.viewBtn', function (){
+        var dogID = $(this).parent().attr("data-id");
+        location.href = './thirdpage.html?' + 'id=' + dogID;
+});
+
+        
+
+
+
+
 
 
 
