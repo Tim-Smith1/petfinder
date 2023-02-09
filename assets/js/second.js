@@ -7,6 +7,7 @@ var gender = searchParamsArr[2].split('=')[1];
 var zipCode = searchParamsArr[3].split('=')[1];
 
 
+
 var petFinderURL = 'https://api.petfinder.com/v2/animals?type=dog';
 var petFinderKey = "vlhqQw3I1th5yoCvFcQJDga3QwH9nYp3faRaS2SK3Ckw8vuHsi";
 var access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ2bGhxUXczSTF0aDV5b0N2RmNRSkRnYTNRd0g5bllwM2ZhUmFTMlNLM0Nrdzh2dUhzaSIsImp0aSI6IjE0NzE3MmMxNTUwOWE0MWVjMWQ3YmFhODJmOGUzOGZiMTg4OTcwNTdlMzkzMTA3MGViNzA0ZWNlNGMwZjk3ZjYxYTIyNGNhZWJhOWQ4OWRjIiwiaWF0IjoxNjc1OTY4MDU2LCJuYmYiOjE2NzU5NjgwNTYsImV4cCI6MTY3NTk3MTY1Niwic3ViIjoiIiwic2NvcGVzIjpbXX0.ujheov4-mO2MtJH8_AsBiO6smr7J3Abuw3YZonoRl72vrRfJUNOSESC1RKLhzfXlI90GUljc-u4BDZPkpJZG83ZbMC8FIdnV6ShIA7soi4GkzGMGQIH9mNnXChJxY5zdWteDfeRCuajwwSZc54AZojDRopQHoPexVTCV2u4qUyJSvNuIr4Z8CPs6YWgBf4HSFZrS_zkMOLsah4hM-ez_T01Bpu-qSAUGcAzix0kn0XH5xl0bWCr532zkbYyP7FPzqattmwjac2CSnVn0i4ScNoGiarj6wrJv-h9rjgw54aQo-1yY2OggY-T20ez2Yemz6WpRRaZmq4ZYwJ8u9gwaeg';
@@ -117,6 +118,7 @@ searchResults.on('click', '.viewBtn', function (){
         var dogID = $(this).parent().attr("data-id");
         location.href = './thirdpage.html?' + 'id=' + dogID;
 });
+
 
   
 
