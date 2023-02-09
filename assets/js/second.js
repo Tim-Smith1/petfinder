@@ -5,13 +5,31 @@ var dogSize = searchParamsArr[0].split('=')[1];
 var dogAge = searchParamsArr[1].split('=')[1];
 var gender = searchParamsArr[2].split('=')[1];
 var zipCode = searchParamsArr[3].split('=')[1];
-
+fetchDogList(dogSize, dogAge, gender, zipCode)
 
 var petFinderURL = 'https://api.petfinder.com/v2/animals?type=dog';
 var petFinderKey = "vlhqQw3I1th5yoCvFcQJDga3QwH9nYp3faRaS2SK3Ckw8vuHsi";
-var access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ2bGhxUXczSTF0aDV5b0N2RmNRSkRnYTNRd0g5bllwM2ZhUmFTMlNLM0Nrdzh2dUhzaSIsImp0aSI6ImNhMzYzYzI4OGIxNjVhNDcyMjZhYmE5YzNmNDExNjQyN2ZlOWY5YmUwMzA5MWU5NzgwOGY2NjY0ZDQxODg0ZThiYWIyODgyM2VjN2MwZmEyIiwiaWF0IjoxNjc1OTYxNjg5LCJuYmYiOjE2NzU5NjE2ODksImV4cCI6MTY3NTk2NTI4OSwic3ViIjoiIiwic2NvcGVzIjpbXX0.KhjC0gJycbVhdlUTI-vqhfZpLLDThlCiTU6wUeERX_Ns848gW8CRWiwJzEY2z20sVwoWWT6MP_k8X_AjJ7FOCFoorSu-UTlievtercOff5L9AN3PS_KjJ_kyO_0w1jJ428LXoNDlzS5EB7riwrhrGZ-XTm5LEM3scoH2U5EnXTknxswCOcekbZdEdMEjEv_bzJsmPD78sb_FD6BvJ1fnZO9XMW8j3bvzQhIm36IcQWJA2463s6AWm_G3RGHV_W02D75kaeX9yrTepiYuzb74tQVmecXASmY4ohnOIfTvV5wMeBHGaULxEg3_HPCsMXLTIVhnfjtchWQNmL4zYOl4Mw';
+var access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ2bGhxUXczSTF0aDV5b0N2RmNRSkRnYTNRd0g5bllwM2ZhUmFTMlNLM0Nrdzh2dUhzaSIsImp0aSI6ImNjODE2YjQ0YTk4NmUwZDg2YTU1M2NlZGY1NWQ0NjA2ZTIwNWU0OWY0OTY4ZWEwZmNkMGUzMmZiODNlNTRjNTFjOGUyZmRjYjEyZWM1MGYwIiwiaWF0IjoxNjc1OTYxNjQ3LCJuYmYiOjE2NzU5NjE2NDcsImV4cCI6MTY3NTk2NTI0Nywic3ViIjoiIiwic2NvcGVzIjpbXX0.yyrug-B3IbCSZBHvlORsWrzgZRRkiZc-i4JPimaGbj2oblTFh43zaOsrDLs_6cIngT-WXJ6iYcPXokHEhmP3vdQ4jm-0oxR5JPKU2_4Nrxz86_EI4ylADwZsyOngLV0KtP3JrPRZmyHrP3xVLkhNuBRt-7Ptk1z1inuO5lo_cOot2t_hIjLBc7jbfIowFY0nXkQom7W7ZyQumzK2N_eWyyxRMiB8mWvn81wHAzyR8HrvFPfIZ8NVzUSxzXLPdwTSu4DYiEY2aJ6v2bBtPSjxuiYLzb6HtR0qPmNs_k2pLSr-dkZgK7TYuoazcDhzSe5MdlbsYDqJmwPWFMTzV0tBSA';
 
-fetch(petFinderURL + '&size=' + dogSize + '&age=' + dogAge + '&gender=' + gender + '&location=' + zipCode, { headers: { 'Authorization': 'Bearer ' + access_token } })
+
+var searchBtn = $('#formBtn');
+
+function searchFormSubmit(event) {
+        event.preventDefault();
+        var zipCode = $('.zipcode').val();
+         console.log(zipCode);
+        var dogAge = $('#dog-age').val();
+        var dogSize = $('#dog-size').val();
+        var gender = $('#gender').val();
+
+        // location.href = './secondpage.html?' + 'size=' + dogSize + '&age=' + dogAge + '&gender=' + gender + '&location=' + zipCode;
+        fetchDogList(dogSize, dogAge, gender, zipCode)
+}
+
+searchBtn.on('submit', searchFormSubmit)
+
+function fetchDogList(dogSize, dogAge, gender, zipCode){
+        fetch(petFinderURL + '&size=' + dogSize + '&age=' + dogAge + '&gender=' + gender + '&location=' + zipCode, { headers: { 'Authorization': 'Bearer ' + access_token } })
         .then(function (response) {
                 return response.json();
         })
@@ -67,7 +85,11 @@ fetch(petFinderURL + '&size=' + dogSize + '&age=' + dogAge + '&gender=' + gender
                                 searchResults.append(dogCard);
                         }
                 }
-        })
+        })      
+}
+
+
+
 var favorites = JSON.parse(localStorage.getItem('favorites'))||[];
 var searchResults = $('#searchResults');
 searchResults.on('click', '.favBtn', function () {
