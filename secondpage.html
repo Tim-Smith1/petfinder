@@ -40,15 +40,15 @@
   </nav>
 
   <div class="columns">
-    <div class="column is-one-quarter">Search for Dogs
-      <form class="box">
+    <div class="column is-one-quarter">
+      <form class="box" id="formBtn">
         <div class="field">
-          <label class="label">Breed</label>
+          
           <div class="control">
-            <input class="input" type="dogType" placeholder="Golden Retriever">
+           
             <section class="block" id="search-form">
-              <h2 class="subtitle">Start your search here:</h2>
-              <input class="input" type="text" placeholder="zip code">
+              <h2 class="subtitle">Filter:</h2>
+              <input class="zipcode" type="text" placeholder="zip code">
               <div class="select">
                   <select id="dog-age">
                     <option>Select age</option>
@@ -77,8 +77,6 @@
             </section>
           </div>
         </div>
-
-        <button class="button is-primary">Search</button>
       </form>
     </div>
 

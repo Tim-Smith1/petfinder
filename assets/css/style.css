@@ -6,6 +6,8 @@ body{
     
 }
 
+
+
 .navbar{
     background-color: #ad62aa;
    
@@ -15,7 +17,7 @@ body{
 }
 
 .subtitle {
-  color: white;
+  color: rgb(8, 8, 8);
 }
 
 .column {
