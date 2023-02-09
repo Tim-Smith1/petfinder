@@ -14,15 +14,24 @@ body{
    
 }
 
+.subtitle {
+  color: white;
+}
+
 .column {
     display: block;
     flex-basis: 0;
-    flex-grow: 1;
+    flex-grow: 0;
     flex-shrink: 1;
     padding: 20px;
     margin: 20px;
+   
+    
+    
 
 }
+
+
 
 .card{
 
@@ -41,9 +50,27 @@ box-shadow: #22313f 10px 5px;
     
   }
 #searchResults {
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
+  font: message-box;
+  /* width: 400px;
+  margin: 50px; */
+ margin: 30px;
+  justify-content: space-evenly;
+  gap: 1em;
+  border: #000000;
+  border-style: dotted;
+
+  
 }
  
-  .dogCards {
-    width: 25%;
-  }
+   /* .dogCards {
+    width: 50%;
+  } */
+
+  html, head body{
+    width: 100%;
+    max-height: 100%;
+  } 
+
+  
