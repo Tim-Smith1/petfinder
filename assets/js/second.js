@@ -119,6 +119,7 @@ searchResults.on('click', '.viewBtn', function (){
         location.href = './thirdpage.html?' + 'id=' + dogID;
 });
 
+
   
 
 
