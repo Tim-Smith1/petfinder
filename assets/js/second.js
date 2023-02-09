@@ -17,6 +17,7 @@ var searchBtn = $('#searchBtn');
 function searchFormSubmit(event) {
         event.preventDefault();
         var zipCode = $('.input').val();
+         console.log(zipCode);
         var dogAge = $('#dog-age').val();
         var dogSize = $('#dog-size').val();
         var gender = $('#gender').val();
