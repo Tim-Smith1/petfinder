@@ -13,3 +13,15 @@ function searchFormSubmit(event) {
 
 searchBtn.on('click', searchFormSubmit)
 
+
+function init() {
+        displayFavorites();
+    }
+    
+init();
+
+var favList = $('#favorites');
+
+function displayFavorites(){
+        var favorites = JSON.parse(localStorage.getItem('favorites'))
+}

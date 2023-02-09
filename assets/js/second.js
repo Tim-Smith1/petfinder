@@ -88,7 +88,7 @@ fetch(petFinderURL + '&size=' + dogSize + '&age=' + dogAge + '&gender=' + gender
                         }
                 }
         })
-var favorites = [];
+var favorites = JSON.parse(localStorage.getItem('favorites'))||[];
 var searchResults = $('#searchResults');
 searchResults.on('click', '.favBtn', function () {
         var favBtn = $(this).children().children();
@@ -98,15 +98,10 @@ searchResults.on('click', '.favBtn', function () {
                 var dogID = $(this).parent().attr("data-id");
                 favorites.push(dogID);
                 saveFavorites();
-                var dogID = $(this).parent().attr("data-id");
-                favorites.splice(dogID, 1);
-                saveFavorites();
-
         } else {
-                console.log("false");
                 var dogID = $(this).parent().attr("data-id");
-                favorites.splice(dogID, 1);
-                console.log(favorites);
+                var indexOfNonFav = favorites.indexOf(dogID); 
+                favorites.splice(indexOfNonFav, 1);
                 saveFavorites();
         }
 })
@@ -121,7 +116,8 @@ searchResults.on('click', '.viewBtn', function (){
         location.href = './thirdpage.html?' + 'id=' + dogID;
 });
 
-        
+  
+
 
 
 
