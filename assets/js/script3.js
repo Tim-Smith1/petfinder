@@ -86,27 +86,27 @@ fetch(petFinderOneURL, { headers: { 'Authorization': 'Bearer ' + access_token } 
                 console.log(data);
                 console.log(data.animal.breeds.primary);
 
-        ///seleted dog center image
+///seleted dog center image
         //var dogImg = document.getElementById('dog-pic')
         //dogimg.myImg = (data.animal.primary_photo_cropped.medium);
 
-        ////selected dog info
+////selected dog info
 
 
-       // var dogCard = $("<div>");
-        // dogCard.addClass('card dogCards');
-        // dogCard.attr('data-id', data.animal.id);
+   
 
-        var dogName = $('<dog-name>');
-        
-        dogName.textContent = (data.animal.name);
+        var dogName = $('<div>');
+        dogName.addClass('card dogName');
+        dogName.attr('data-id', data.animal.name);
 
-        var dogDesc = document.getElementById('dog-info');
-        dogDesc.textContent = (data.animal.description);
+        var dogDesc = $('<div>');
+        dogDesc.addClass('card dogDesc');
+        dogDesc.attr = (data.animal.description);
 
-        var dogBreed = document.getElementById('dog-breed');
-        dogBreed.textContent = (data.animal.size);
-        console.log(data.animal.size);
+        // var dogBreed = $('');
+        // dogBreed.addClass = ('card dogBreed');
+        // dogBreed.attr = (data.animal.size);
+        // console.log(data.animal.size);
         
 
 
