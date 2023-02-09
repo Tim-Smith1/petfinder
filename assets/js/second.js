@@ -9,7 +9,7 @@ var zipCode = searchParamsArr[3].split('=')[1];
 
 var petFinderURL = 'https://api.petfinder.com/v2/animals?type=dog';
 var petFinderKey = "vlhqQw3I1th5yoCvFcQJDga3QwH9nYp3faRaS2SK3Ckw8vuHsi";
-var access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ2bGhxUXczSTF0aDV5b0N2RmNRSkRnYTNRd0g5bllwM2ZhUmFTMlNLM0Nrdzh2dUhzaSIsImp0aSI6IjdhYmZjOTlkOTljNzFjMWIxMmUzYjc1MTcwNTM0MTBmNTEyNGMzMDY1YWZhZWEyYjRkMWE2MTI4MzUwYTA1OThlNjA0MzA5NzkyMDNmZDg0IiwiaWF0IjoxNjc1ODk2ODY2LCJuYmYiOjE2NzU4OTY4NjYsImV4cCI6MTY3NTkwMDQ2Niwic3ViIjoiIiwic2NvcGVzIjpbXX0.AQPqzMODp-Lp036kGEE9BERehjVDXN5JU955hJqR0ih2pRljeye--jft6mmIaPLR0j6AGQDHysHqJ89qwz591Bhku7pEtI4BFqmzIn9auhfkKOKbIuIGrPwjSCI0RvAZFJ_mgdJOs6_5UvCVESjJXSDago-IvlxWG7BsR0Aeb4hbSJnKGm2NGt4X6_YYJNx1mrjgH4B_Wi0zk8ptijA_Tda5DkcLbTC6iZIOrahqvTU8OCl85JgO4VT_Fm6-wBBZrezT9zIgNPwL3EfoeZ3Lxdtae-Y-bjXaVymDl33Z8nkVMeprdXT9BZAcEL0gvG536HAJfBJsumqqh7Lf7V0tpw';
+var access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ2bGhxUXczSTF0aDV5b0N2RmNRSkRnYTNRd0g5bllwM2ZhUmFTMlNLM0Nrdzh2dUhzaSIsImp0aSI6IjliZDlkMTgzOGFmOGJjMzQyMjI2YmFmYWMxYjgwMTExNjhhNTE3OTQ2MGExNjdjNjg3MzQ3NTVlMjEzMzVmMDY2ODdlMTUxMWVlYmZkY2UwIiwiaWF0IjoxNjc1OTAwODYyLCJuYmYiOjE2NzU5MDA4NjIsImV4cCI6MTY3NTkwNDQ2Miwic3ViIjoiIiwic2NvcGVzIjpbXX0.iGgFrUAUVNyenEun-2invHXdOkjWkS3U6Uo9Ha8TPZs4AURPoT2lluE_cE9g0q1cDKLlDQoNu9K5yuoYRyl8VHzoPrBreEb_yAjn8t_OM-E-aqNK1ZKpSI-67q9LMbQ7WzSN5axgj4jOU-POxIVg0zhr8ELQV9Fmmb9V7Z8qVpdsMxxC_ES-aTTfIlWBZoJcy2JnZxt6G65nDs2QhfgwWXWMH8Rn_wM7blq3evIFqEZFTmRASWV_S53B_-ZCiDuYT5oolXxtNwhxqiygAdwmtYqfMc4od-rgKmMKPKHL48n-r0r6wxRGL19zGeooqSBNcdL72NTxPn4sTzJ3S3g3oQ';
 
 fetch(petFinderURL + '&size=' + dogSize + '&age=' + dogAge + '&gender=' + gender + '&location=' + zipCode, { headers: { 'Authorization': 'Bearer ' + access_token } })
         .then(function (response) {
@@ -22,6 +22,7 @@ for (var i = 0; i < data.animals.length; i++) {
                 var searchResults = $('#searchResults');
                 var dogCard = $("<div>");
                 dogCard.addClass('card dogCards');
+                dogCard.attr('data-id', data.animals[i].id);
                 var dogImg = $('<div>');
                 dogImg.addClass('card-image')
                 dogCard.append(dogImg);
@@ -72,12 +73,19 @@ for (var i = 0; i < data.animals.length; i++) {
 
 var searchResults = $('#searchResults');
 searchResults.on('click', '.favBtn', function(){
-console.log($(this));
+console.log($(this).parent().attr("data-id"));
 $(this).children().children().toggleClass('fa-solid');
-
 
 })
 
+var id = 59889330;
+var petFinderOneURL = 'https://api.petfinder.com/v2/animals/' + id;
+fetch(petFinderOneURL, { headers: { 'Authorization': 'Bearer ' + access_token } })
+        .then(function (response) {
+                return response.json();
+        })
+        .then(function (data) {
+        console.log(data);})
 
     // dogFacts = {
         //     breeds: data.animals[i].breeds,
