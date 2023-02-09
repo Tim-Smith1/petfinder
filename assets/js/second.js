@@ -106,7 +106,7 @@ searchResults.on('click', '.favBtn', function () {
                 favorites.splice(indexOfNonFav, 1);
                 saveFavorites();
         }
-})
+});
 
 function saveFavorites() {
         localStorage.setItem("favorites", JSON.stringify(favorites));
