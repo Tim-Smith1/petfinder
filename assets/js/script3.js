@@ -65,3 +65,18 @@ var dogEnergy = "https://api.api-ninjas.com/v1/dogs?energy="+energy;
 // }
 
 // searchBtn.on('click', searchFormSubmit)
+
+var searchParamsArr = document.location.search.split('&');
+console.log(searchParamsArr);
+var dogID = searchParamsArr[0].split('=')[1];
+var petFinderKey = "vlhqQw3I1th5yoCvFcQJDga3QwH9nYp3faRaS2SK3Ckw8vuHsi";
+var access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ2bGhxUXczSTF0aDV5b0N2RmNRSkRnYTNRd0g5bllwM2ZhUmFTMlNLM0Nrdzh2dUhzaSIsImp0aSI6ImEwYzhkMTcwNTRlZDIyY2Q1MGVmMGMxMzJiZTYxMzBkNTM4ZWRhZWU2YWE4OWM0ZThiZGVlZjc2NjU3NGQ5ODAyYTE4NmE2NDFkYmZmMmJmIiwiaWF0IjoxNjc1OTU2ODE0LCJuYmYiOjE2NzU5NTY4MTQsImV4cCI6MTY3NTk2MDQxNCwic3ViIjoiIiwic2NvcGVzIjpbXX0.HokvqiIBTyCw8u4rBQBD6jn5O-dyT4MFaKAcLeZUQBwlXRjD8HKW_Q5Fo7eVTi15prvvqXcaeiH1HG13q0bAOgcHcVsBUKi1zalxr8rNb6HDBX-XZ1E6YAEt9B8RKTSHPRw8LKQQnsbhrcs_sMPfM4lNnfI-4at84PZKoEWBEvWcRjj0TA6fl84I-OEu42PbE2gggNQgyvqSxNQuQUzpiN8pZHT0Kbu8jOyfBMT-h3MzSY4hZxrY8N1NH8snV1sLpsJ4FTrN3EuBEkvaMkdjL_V9bZ4HBXyEXVmGXATehxnY7jBe1s_du4_o8Urbg8flSsYv0gcg-A3_4XIXi9Xghw';
+
+var petFinderOneURL = 'https://api.petfinder.com/v2/animals/' + dogID;
+fetch(petFinderOneURL, { headers: { 'Authorization': 'Bearer ' + access_token } })
+        .then(function (response) {
+                return response.json();
+        })
+        .then(function (data) {
+                console.log(data);
+        })
