@@ -20,6 +20,32 @@ fetch(ninjaDogURL, {headers:{'X-Api-Key': 'oeZRCFASXWqpKLVdC4S1qg==0vv7FTjSoPeON
         .then(function (data) {
         console.log(data);
 
+var myImg = JSON.stringify(data[0].image_link);
+
+//         function GFG_Fun() {
+//                 var img = document.createElement('img');
+//                 img.src =
+//                 myImg;
+//     //'https://media.geeksforgeeks.org/wp-content/uploads/20190529122828/bs21.png';
+//                 document.getElementById('image-link').appendChild(img);
+                
+//         }
+
+        
+//GFG_Fun();
+        //myImg.src = JSON.stringify(data[0].image_link);
+        console.log(myImg);
+        //myImg.src = ('<img src=\'' + (data[0].image_link) + '\' alt="Placeholder image">');
+        var imageContainer = document.getElementById('image-link');
+        var img1 = document.createElement('img');
+        img1.setAttribute('src', myImg);
+        imageContainer.append(img1);
+        console.log(img1);
+        //console.log('<img src=\'' + (data[0].image_link) + '\' alt="Placeholder image">');
+        
+        //document.getElementById('image-link').appendChild(img);
+
+        
         document.getElementById('barking').innerHTML = ('Barking:' + data[0].barking);
         document.getElementById('drooling').innerHTML = ('Drooling:' + data[0].drooling);
         document.getElementById('energy').innerHTML = ('Energy:' + data[0].energy);
