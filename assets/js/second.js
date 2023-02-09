@@ -9,7 +9,25 @@ var zipCode = searchParamsArr[3].split('=')[1];
 
 var petFinderURL = 'https://api.petfinder.com/v2/animals?type=dog';
 var petFinderKey = "vlhqQw3I1th5yoCvFcQJDga3QwH9nYp3faRaS2SK3Ckw8vuHsi";
-var access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ2bGhxUXczSTF0aDV5b0N2RmNRSkRnYTNRd0g5bllwM2ZhUmFTMlNLM0Nrdzh2dUhzaSIsImp0aSI6ImEwYzhkMTcwNTRlZDIyY2Q1MGVmMGMxMzJiZTYxMzBkNTM4ZWRhZWU2YWE4OWM0ZThiZGVlZjc2NjU3NGQ5ODAyYTE4NmE2NDFkYmZmMmJmIiwiaWF0IjoxNjc1OTU2ODE0LCJuYmYiOjE2NzU5NTY4MTQsImV4cCI6MTY3NTk2MDQxNCwic3ViIjoiIiwic2NvcGVzIjpbXX0.HokvqiIBTyCw8u4rBQBD6jn5O-dyT4MFaKAcLeZUQBwlXRjD8HKW_Q5Fo7eVTi15prvvqXcaeiH1HG13q0bAOgcHcVsBUKi1zalxr8rNb6HDBX-XZ1E6YAEt9B8RKTSHPRw8LKQQnsbhrcs_sMPfM4lNnfI-4at84PZKoEWBEvWcRjj0TA6fl84I-OEu42PbE2gggNQgyvqSxNQuQUzpiN8pZHT0Kbu8jOyfBMT-h3MzSY4hZxrY8N1NH8snV1sLpsJ4FTrN3EuBEkvaMkdjL_V9bZ4HBXyEXVmGXATehxnY7jBe1s_du4_o8Urbg8flSsYv0gcg-A3_4XIXi9Xghw';
+var access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ2bGhxUXczSTF0aDV5b0N2RmNRSkRnYTNRd0g5bllwM2ZhUmFTMlNLM0Nrdzh2dUhzaSIsImp0aSI6ImNjODE2YjQ0YTk4NmUwZDg2YTU1M2NlZGY1NWQ0NjA2ZTIwNWU0OWY0OTY4ZWEwZmNkMGUzMmZiODNlNTRjNTFjOGUyZmRjYjEyZWM1MGYwIiwiaWF0IjoxNjc1OTYxNjQ3LCJuYmYiOjE2NzU5NjE2NDcsImV4cCI6MTY3NTk2NTI0Nywic3ViIjoiIiwic2NvcGVzIjpbXX0.yyrug-B3IbCSZBHvlORsWrzgZRRkiZc-i4JPimaGbj2oblTFh43zaOsrDLs_6cIngT-WXJ6iYcPXokHEhmP3vdQ4jm-0oxR5JPKU2_4Nrxz86_EI4ylADwZsyOngLV0KtP3JrPRZmyHrP3xVLkhNuBRt-7Ptk1z1inuO5lo_cOot2t_hIjLBc7jbfIowFY0nXkQom7W7ZyQumzK2N_eWyyxRMiB8mWvn81wHAzyR8HrvFPfIZ8NVzUSxzXLPdwTSu4DYiEY2aJ6v2bBtPSjxuiYLzb6HtR0qPmNs_k2pLSr-dkZgK7TYuoazcDhzSe5MdlbsYDqJmwPWFMTzV0tBSA';
+
+
+var searchBtn = $('#searchBtn');
+
+function searchFormSubmit(event) {
+        event.preventDefault();
+        var zipCode = $('.input').val();
+        var dogAge = $('#dog-age').val();
+        var dogSize = $('#dog-size').val();
+        var gender = $('#gender').val();
+
+        location.href = './secondpage.html?' + 'size=' + dogSize + '&age=' + dogAge + '&gender=' + gender + '&location=' + zipCode;
+
+}
+
+searchBtn.on('click', searchFormSubmit)
+
+
 
 
 fetch(petFinderURL + '&size=' + dogSize + '&age=' + dogAge + '&gender=' + gender + '&location=' + zipCode, { headers: { 'Authorization': 'Bearer ' + access_token } })
