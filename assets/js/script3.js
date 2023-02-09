@@ -84,6 +84,7 @@ fetch(petFinderOneURL, { headers: { 'Authorization': 'Bearer ' + access_token } 
         })
         .then(function (data) {
                 console.log(data);
+                console.log(data.animal.breeds.primary);
 
         ///seleted dog center image
         //var dogImg = document.getElementById('dog-pic')
