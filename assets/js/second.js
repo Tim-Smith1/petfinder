@@ -1,4 +1,3 @@
-
 var searchParamsArr = document.location.search.split('&');
 console.log(searchParamsArr);
 var dogSize = searchParamsArr[0].split('=')[1];
@@ -6,11 +5,9 @@ var dogAge = searchParamsArr[1].split('=')[1];
 var gender = searchParamsArr[2].split('=')[1];
 var zipCode = searchParamsArr[3].split('=')[1];
 
-
-
 var petFinderURL = 'https://api.petfinder.com/v2/animals?type=dog';
 var petFinderKey = "vlhqQw3I1th5yoCvFcQJDga3QwH9nYp3faRaS2SK3Ckw8vuHsi";
-var access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ2bGhxUXczSTF0aDV5b0N2RmNRSkRnYTNRd0g5bllwM2ZhUmFTMlNLM0Nrdzh2dUhzaSIsImp0aSI6ImUzMTgwYjcwNTUzODI5ZTU2ZWJkMTQ4YmE5N2YzNGI5ZjUwYjc2ZDZiMzg0MGI2ODY1ZTdiNThiNDE5YmE2OTMzOTdmYTI1NzkwZTMzMzRkIiwiaWF0IjoxNjc2MDUyMDczLCJuYmYiOjE2NzYwNTIwNzMsImV4cCI6MTY3NjA1NTY3Mywic3ViIjoiIiwic2NvcGVzIjpbXX0.gcYR1ITADF7cyqRKH40Kv0y5Bf1uRtsn5H7qhUs59dgXBWyB6EuX5mjQzAyv_Y1AEd7yQVZI_e5lN9_zMQyINHf-T2ueVJIW_iVmyHafOb-2E8fLiAXA7QN7paO6x63nhVjCnk9p5FMPItGsNCIFvo-ANc9jMYDJExA2Ps0PEZvqhzvIIo7wqBhxz5gatalzbVgR2-DkA15XUpuCfX0-PeK2vjoqxM5vf_ieLuJy0gVpGCcXj5BMvWE_GNa0NxocnvS5eVJ4EXGGrrCbMdv-bLt6bhoccHKFsVdohyNaZtRVUTdGKGoIfmwCVmQkODbqjR41tn7OCfqFLb_wGOYWdA';
+var access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ2bGhxUXczSTF0aDV5b0N2RmNRSkRnYTNRd0g5bllwM2ZhUmFTMlNLM0Nrdzh2dUhzaSIsImp0aSI6IjZlYjhmNDE3NzA2MjQxNWI1NWYyNDlmNzVkYzZmZjY3NjhiN2I2ZDQwYTE1MjQzYWNiYjE5NTdjNjI2MjI1MmI5OTA1NDYzZTBlMTM3N2QyIiwiaWF0IjoxNjc2MDU1OTU0LCJuYmYiOjE2NzYwNTU5NTQsImV4cCI6MTY3NjA1OTU1NCwic3ViIjoiIiwic2NvcGVzIjpbXX0.t7QB7TM09Zx6zOlfcAGrG8CkFo7YNwP_pzFl3E9PzFQo4OL-NBTiydaY_htQVE9KTR2aOouueP75GL22iET_y2dFDwRyDvxZ368xw3bt9aojzegfzivnKb3aYy8VqC3Gc2MgV6uR8dby3nnz4AAJWMJF3K_G0X9Kim4_RpWZBWfiwvprtPAd6Pjz-MCf5-I4l-MxwIsrx8VCYtKYd3z4ak_xd8RwuL9r2o_fXRevzLpIQP4S-VSaEM5F4F0D2Bo1pi4OBv01pja3vZ-HaTvy6UUwT-paP4QhKefdgQkEOH2luUlwKSPYG9sPRo7AIxRE6FHVsnlVUTRBNdTqAfGkNQ';
 
 fetchDogList(dogSize, dogAge, gender, zipCode)
 var searchBtn = $('#formBtn');
@@ -88,7 +85,6 @@ function fetchDogList(dogSize, dogAge, gender, zipCode){
 }
 
 
-
 var favorites = JSON.parse(localStorage.getItem('favorites'))||[];
 var searchResults = $('#searchResults');
 searchResults.on('click', '.favBtn', function () {
@@ -108,7 +104,6 @@ searchResults.on('click', '.favBtn', function () {
 function saveFavorites() {
         localStorage.setItem("favorites", JSON.stringify(favorites));
 }
-
 
 searchResults.on('click', '.viewBtn', function (){
         var dogID = $(this).parent().attr("data-id");
