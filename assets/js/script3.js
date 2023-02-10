@@ -2,8 +2,6 @@
 var ninjaDogKey = "oeZRCFASXWqpKLVdC4S1qg==0vv7FTjSoPeONrA6"
 var breed;
 
-
-
 function dogBreedInfo(){
 var ninjaDogURL = "https://api.api-ninjas.com/v1/dogs?name=" + breed;
 fetch(ninjaDogURL, {headers:{'X-Api-Key': 'oeZRCFASXWqpKLVdC4S1qg==0vv7FTjSoPeONrA6'}})
@@ -11,8 +9,7 @@ fetch(ninjaDogURL, {headers:{'X-Api-Key': 'oeZRCFASXWqpKLVdC4S1qg==0vv7FTjSoPeON
             return response.json();
         })
         .then(function (data) {
-        console.log(data);
-
+        
         // column 3 image
         var myImg = JSON.stringify(data[0].image_link);
         var imageContainer = document.getElementById('image-link');
@@ -40,8 +37,10 @@ fetch(ninjaDogURL, {headers:{'X-Api-Key': 'oeZRCFASXWqpKLVdC4S1qg==0vv7FTjSoPeON
 var searchParamsArr = document.location.search.split('&');
 console.log(searchParamsArr);
 var dogID = searchParamsArr[0].split('=')[1];
-var petFinderKey = "vlhqQw3I1th5yoCvFcQJDga3QwH9nYp3faRaS2SK3Ckw8vuHsi&client_secret=0lu8umPP2fDm04fyPgehlUvX8qObWDU2wT5jMUQH";
-var access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ2bGhxUXczSTF0aDV5b0N2RmNRSkRnYTNRd0g5bllwM2ZhUmFTMlNLM0Nrdzh2dUhzaSIsImp0aSI6IjZlYjhmNDE3NzA2MjQxNWI1NWYyNDlmNzVkYzZmZjY3NjhiN2I2ZDQwYTE1MjQzYWNiYjE5NTdjNjI2MjI1MmI5OTA1NDYzZTBlMTM3N2QyIiwiaWF0IjoxNjc2MDU1OTU0LCJuYmYiOjE2NzYwNTU5NTQsImV4cCI6MTY3NjA1OTU1NCwic3ViIjoiIiwic2NvcGVzIjpbXX0.t7QB7TM09Zx6zOlfcAGrG8CkFo7YNwP_pzFl3E9PzFQo4OL-NBTiydaY_htQVE9KTR2aOouueP75GL22iET_y2dFDwRyDvxZ368xw3bt9aojzegfzivnKb3aYy8VqC3Gc2MgV6uR8dby3nnz4AAJWMJF3K_G0X9Kim4_RpWZBWfiwvprtPAd6Pjz-MCf5-I4l-MxwIsrx8VCYtKYd3z4ak_xd8RwuL9r2o_fXRevzLpIQP4S-VSaEM5F4F0D2Bo1pi4OBv01pja3vZ-HaTvy6UUwT-paP4QhKefdgQkEOH2luUlwKSPYG9sPRo7AIxRE6FHVsnlVUTRBNdTqAfGkNQ';
+
+var petFinderKey = "4z5js4u2Bie6Gn4LK2v6IjeXiCEHN7QjMerLwamf5MbkXyBllB";
+var access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0ejVqczR1MkJpZTZHbjRMSzJ2NklqZVhpQ0VITjdRak1lckx3YW1mNU1ia1h5QmxsQiIsImp0aSI6Ijk2Y2Q0ODBhYTRlNjEwMDNkZTgwMmEzYzNmZTU3NzM2YmIxNzFhZGI2NzgwNDA4OTgyNDMxZjM5MWVlYWRiNDBlOGU0MDRlZDJjMGNhZTE5IiwiaWF0IjoxNjc2MDU2NzYxLCJuYmYiOjE2NzYwNTY3NjEsImV4cCI6MTY3NjA2MDM2MSwic3ViIjoiIiwic2NvcGVzIjpbXX0.riliiwhhK-HHyIee2ZCjA6qwc2vL4M4a3wBOzipHVrawHyUOiKUTAXF1z-YWXqYN5-KBS-seLOG4cAaw0uklrRXKgzRu0MASg-GFlK4pCABmJ8C4jveu-DZVb4DsNZIZArhT33bkro9QEjpkWzEPEzKH8wHfOw7_f2h9ScMMhGW4qIvkVoCrEGruPeeW2btJDsF_xASkZeo3z2VFFUkbF-MmClwF50oszr3iO68Z80Y1dA9g4Vl4KAWx7JqIf_3MmNMMetkycTXREXv0YYgsIg5Nwg9T_nsYL8Y7p8raIwSPJJ-GhESN1Uee8zRz_MmBT3XFQ2Rno48WRWqgpxxjwA';
+
 
 var petFinderOneURL = 'https://api.petfinder.com/v2/animals/' + dogID;
 fetch(petFinderOneURL, { headers: { 'Authorization': 'Bearer ' + access_token } })
@@ -49,14 +48,9 @@ fetch(petFinderOneURL, { headers: { 'Authorization': 'Bearer ' + access_token } 
                 return response.json();
         })
         .then(function (data) {
-                console.log(data);
+                
                 breed = (data.animal.breeds.primary);
-                console.log(breed);
-                dogBreedInfo();
-                console.log(data.animal.primary_photo_cropped.medium);
-
-
-
+                
 ///seleted dog center image
         $('.dog-image img').attr('src', data.animal.primary_photo_cropped.large);
 
