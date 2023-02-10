@@ -1,23 +1,8 @@
 
-//dogs API 
-// var ninjaDogURL =  'https://api.api-ninjas.com/v1/dogs?name=' + breed;
-
-// var breed = 'pitbull';
-
 var ninjaDogKey = "oeZRCFASXWqpKLVdC4S1qg==0vv7FTjSoPeONrA6"
 var breed;
-// localStorage.getItem('dogBreed');
-// var energy = "3";
-// + '&energy=' + energy;
 
-//var barking = document.getElementById('barking').innerHTML;
 
-// function breedDogBreed() {
-
-//     //converts array to string
-//     breed = localStorage.getItem('dogBreed');
-
-// }
 
 function dogBreedInfo(){
 var ninjaDogURL = "https://api.api-ninjas.com/v1/dogs?name=" + breed;
