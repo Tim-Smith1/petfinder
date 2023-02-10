@@ -22,15 +22,15 @@ fetch(ninjaDogURL, {headers:{'X-Api-Key': 'oeZRCFASXWqpKLVdC4S1qg==0vv7FTjSoPeON
         imageContainer.append(img1);
         
         //column 3 info
-        document.getElementById('barking').innerHTML = ('Barking:' + data[0].barking);
-        document.getElementById('drooling').innerHTML = ('Drooling:' + data[0].drooling);
-        document.getElementById('energy').innerHTML = ('Energy:' + data[0].energy);
-        document.getElementById('child-friendly').innerHTML = ('Child Friendly:' + data[0].good_with_children);
-        document.getElementById('maxage').innerHTML = ('Max age:' + data[0].max_life_expectancy);
-        document.getElementById('playfulness').innerHTML = ('Playfulness:' + data[0].playfulness);
-        document.getElementById('protective').innerHTML = ('Protective:' + data[0].protectiveness);
-        document.getElementById('shedding').innerHTML = ('Shedding:' + data[0].shedding);
-        document.getElementById('trainability').innerHTML = ('Trainability:' + data[0].trainability);
+        document.getElementById('barking').innerHTML = ('Barking: ' + data[0].barking);
+        document.getElementById('drooling').innerHTML = ('Drooling: ' + data[0].drooling);
+        document.getElementById('energy').innerHTML = ('Energy: ' + data[0].energy);
+        document.getElementById('child-friendly').innerHTML = ('Child Friendly: ' + data[0].good_with_children);
+        document.getElementById('maxage').innerHTML = ('Max age: ' + data[0].max_life_expectancy);
+        document.getElementById('playfulness').innerHTML = ('Playfulness: ' + data[0].playfulness);
+        document.getElementById('protective').innerHTML = ('Protective: ' + data[0].protectiveness);
+        document.getElementById('shedding').innerHTML = ('Shedding: ' + data[0].shedding);
+        document.getElementById('trainability').innerHTML = ('Trainability: ' + data[0].trainability);
         
         })}
 
@@ -86,14 +86,9 @@ fetch(petFinderOneURL, { headers: { 'Authorization': 'Bearer ' + access_token } 
         var dogCity = $('<li>');
         dogCity.text(data.animal.contact.address.city)
         dogInfo.append(dogCity);
-
-///Append breed from ninja API to use breed from petfinder API
-        //breed.innerText = (data.animal.breeds.primary);
-        // localStorage.setItem('dogBreed', (data.animal.breeds.primary)); 
                 
         })
         
-        //breedDogBreed();
 
         displayFavorites();
 var favList = $('#favorites');
