@@ -5,9 +5,10 @@
 // var breed = 'pitbull';
 
 var ninjaDogKey = "oeZRCFASXWqpKLVdC4S1qg==0vv7FTjSoPeONrA6"
-var breed = localStorage.getItem('dogBreed');
-var energy = "3";
-var ninjaDogURL = "https://api.api-ninjas.com/v1/dogs?name=" + breed;// + '&energy=' + energy;
+var breed;
+// localStorage.getItem('dogBreed');
+// var energy = "3";
+// + '&energy=' + energy;
 
 //var barking = document.getElementById('barking').innerHTML;
 
@@ -18,15 +19,16 @@ var ninjaDogURL = "https://api.api-ninjas.com/v1/dogs?name=" + breed;// + '&ener
 
 // }
 
-
+function dogBreedInfo(){
+var ninjaDogURL = "https://api.api-ninjas.com/v1/dogs?name=" + breed;
 fetch(ninjaDogURL, {headers:{'X-Api-Key': 'oeZRCFASXWqpKLVdC4S1qg==0vv7FTjSoPeONrA6'}})
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
-        //console.log(data);
+        console.log(data);
 
-        //column 3 image
+        // column 3 image
         var myImg = JSON.stringify(data[0].image_link);
         var imageContainer = document.getElementById('image-link');
         var img1 = document.createElement('img');
@@ -45,37 +47,10 @@ fetch(ninjaDogURL, {headers:{'X-Api-Key': 'oeZRCFASXWqpKLVdC4S1qg==0vv7FTjSoPeON
         document.getElementById('shedding').innerHTML = ('Shedding:' + data[0].shedding);
         document.getElementById('trainability').innerHTML = ('Trainability:' + data[0].trainability);
         
-        })
+        })}
 
         
 
-// var dogBreed = "https://api.api-ninjas.com/v1/dogs?name="+breed;
-// var dogEnergy = "https://api.api-ninjas.com/v1/dogs?energy="+energy;
-
-//document.getElementById('barking').innerHTML = ('Barking:' +data.list[0].barking);
-
-
-
-
-// function searchFormSubmit(event) {
-//     event.preventDefault();
-//     var zipCode = $('.input').val();
-//     var dogAge = $('#dog-age').val();
-//     var dogSize = $('#dog-size').val();
-//     var gender = $('#gender').val();
-
-//     fetch(petFinderURL + '&size=' + dogSize + '&age=' + dogAge + '&gender=' + gender + '&location=' + zipCode, { headers: { 'Authorization': 'Bearer ' + access_token } })
-//             .then(function (response) {
-//                     return response.json();
-//             })
-//             .then(function (data) {
-
-//                     console.log(data);
-//             })
-
-// }
-
-// searchBtn.on('click', searchFormSubmit)
 
 var searchParamsArr = document.location.search.split('&');
 console.log(searchParamsArr);
@@ -90,7 +65,9 @@ fetch(petFinderOneURL, { headers: { 'Authorization': 'Bearer ' + access_token } 
         })
         .then(function (data) {
                 console.log(data);
-                console.log(data.animal.breeds.primary);
+                breed = (data.animal.breeds.primary);
+                console.log(breed);
+                dogBreedInfo();
                 console.log(data.animal.primary_photo_cropped.medium);
 
 
@@ -127,7 +104,7 @@ fetch(petFinderOneURL, { headers: { 'Authorization': 'Bearer ' + access_token } 
 
 ///Append breed from ninja API to use breed from petfinder API
         //breed.innerText = (data.animal.breeds.primary);
-        localStorage.setItem('dogBreed', (data.animal.breeds.primary)); 
+        // localStorage.setItem('dogBreed', (data.animal.breeds.primary)); 
                 
         })
         
