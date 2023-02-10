@@ -10,7 +10,7 @@ var zipCode = searchParamsArr[3].split('=')[1];
 
 var petFinderURL = 'https://api.petfinder.com/v2/animals?type=dog';
 var petFinderKey = "vlhqQw3I1th5yoCvFcQJDga3QwH9nYp3faRaS2SK3Ckw8vuHsi";
-var access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ2bGhxUXczSTF0aDV5b0N2RmNRSkRnYTNRd0g5bllwM2ZhUmFTMlNLM0Nrdzh2dUhzaSIsImp0aSI6IjBiMDhhNWRlZDFmZjIyZjViMTc5MzY4OGQ4ZTczNGU1ZmNhNmY3ZTI0OTBjMmFiM2IwMjY0MTRkZDEzNDk3ZTkzZTkxODFkZmMwZGRiYWQzIiwiaWF0IjoxNjc2MDQ4NzAxLCJuYmYiOjE2NzYwNDg3MDEsImV4cCI6MTY3NjA1MjMwMSwic3ViIjoiIiwic2NvcGVzIjpbXX0.fSDGoBODbAT3KbVQSRRKSINX3sroIABY2G9b1HAtRPop_tg9LjXnIZtXkXSTz0VDiHRyHc6pX_Xd9DhY7gITvK_EWinGxmXybA4S3rKs_C0IHJ9DAsGRDPM2_05LF5Vm8AhQcwts0vlfsCfQUrAnYJWnHkfqlBAth1TVdcxRKVhkGT3kMiRxQeh-Fr9QAAlQ3k-MzfP4tngoArO_CxiNoZzUG5tyGPgvleqclg6uRj49NVDaTHYaBNnmUM-avmj2cAChBve4LJO3lCkaM5U9QiwpcW08-QyBr6JvZQng__GuZVITBJ3aUVEvsLDnhKfwoLUZ8CfcUPQZwB5oPkMSxw';
+var access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ2bGhxUXczSTF0aDV5b0N2RmNRSkRnYTNRd0g5bllwM2ZhUmFTMlNLM0Nrdzh2dUhzaSIsImp0aSI6IjhmNThlNzBiNTM5NmVlZWI4NGVkMTQ2NDM5NWJjMTQxZDhlY2M4MWZjNzkxMjg3MzMyNTY5NjlkODQ2MmM3N2NlOWEwYjQxZGNjYzgwYzBhIiwiaWF0IjoxNjc2MDQ4ODg0LCJuYmYiOjE2NzYwNDg4ODQsImV4cCI6MTY3NjA1MjQ4NCwic3ViIjoiIiwic2NvcGVzIjpbXX0.PLj35wdWE02LgxJMp2ZbtjIVWw28gUTRUuZZMDImIhemHHOQWJM2M6krQ_xafyLoyR0Ez69exZyMy2YVXhj5du2IJA9RTgbjEFHGgtuNmYeqLC0556fvlMyJeUYUl_-oLi37pcdWJhl9OV2VMxnHcq_mVR5NDuWT2NLw0WqMGufwPR-6WYPhiqwf9tF7m9Gs8sP32x4IW67oRRol5BDekB3qPzo5XvyZFvVa3EKiwjMmEvBmwdU-AxJziyFlCYvj_AK5JbO9KCfs6MUp3xT7K1BnDXjUUdiz82opeOxQ0ssWv1RUos7O3tUVJZk4cYISSgfcEs7T-gV-gZ315pR-gA';
 
 fetchDogList(dogSize, dogAge, gender, zipCode)
 var searchBtn = $('#formBtn');
@@ -41,7 +41,7 @@ function fetchDogList(dogSize, dogAge, gender, zipCode){
                                 var searchResults = $('#searchResults');
                                 var dogCard = $("<div>");
                                 dogCard.addClass('card dogCards');
-                                dogCard.html('data-id', data.animals[i].id);
+                                dogCard.attr('data-id', data.animals[i].id);
                                 var dogImg = $('<div>');
                                 dogImg.addClass('card-image')
                                 dogCard.append(dogImg);
@@ -116,7 +116,7 @@ function saveFavorites() {
 
 searchResults.on('click', '.viewBtn', function (){
         var dogID = $(this).parent().attr("data-id");
-        location.href = './thirdpage.html?' + 'id=' + dogID;
+        location.href = './thirdpage.html?id=' + dogID;
 });
 
 
