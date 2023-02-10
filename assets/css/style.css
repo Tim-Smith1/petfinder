@@ -3,6 +3,7 @@ body{
     color: white;
     font-size: 25px;
     font-family: 'Gentium Book Plus', serif;
+    height: 100%;
     
 }
 
@@ -12,10 +13,6 @@ section{
 
 .navbar{
     background-color: #ad62aa;
-   
-    
-   
-   
 }
 
 .subtitle {
@@ -29,10 +26,6 @@ section{
     flex-shrink: 1;
     padding: 20px;
     margin: 20px;
-   
-    
-    
-
 }
 
 
