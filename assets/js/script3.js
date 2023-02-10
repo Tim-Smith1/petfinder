@@ -81,7 +81,7 @@ var searchParamsArr = document.location.search.split('&');
 console.log(searchParamsArr);
 var dogID = searchParamsArr[0].split('=')[1];
 var petFinderKey = "vlhqQw3I1th5yoCvFcQJDga3QwH9nYp3faRaS2SK3Ckw8vuHsi&client_secret=0lu8umPP2fDm04fyPgehlUvX8qObWDU2wT5jMUQH";
-var access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ2bGhxUXczSTF0aDV5b0N2RmNRSkRnYTNRd0g5bllwM2ZhUmFTMlNLM0Nrdzh2dUhzaSIsImp0aSI6IjJiNWExYzA2N2Y1YzYxMzZlYzg0N2ZjOWFjN2MyODczOGNhMzc3NDUxZjk3N2E4ZjllZGYxYWNlNDgwNzI0Mzk4MDA0Y2RmYjMzNDMwY2I5IiwiaWF0IjoxNjc2MDQwNjkyLCJuYmYiOjE2NzYwNDA2OTIsImV4cCI6MTY3NjA0NDI5Miwic3ViIjoiIiwic2NvcGVzIjpbXX0.vsMAphOF03Po4eCl-NQy5_z8xa0Ee306YgVUX5O8wfDyEYe0GzgP1wHLSZonAVoDj9qmqucW-OMYNY3Y9iol4Ii3DaXhW-08GPKjq4fRmkLHFzwd8wvhp_TETnqfEhJ7ieud_4Qza0Ypo8Qtj5oLvr7XDpHx8_W49anfJ9S4Zh1Iy1tbJfqSF-PKVx2-KSdK0x6_PnbKKgH-P6vS5MfP7G13Ttcr2lF_0OlYyZPygN4RJ9Dn9DQFOkJxvCMaTjsKv4_2PcRPWOjqIoY5JiYiwnUq1_nD2kJ-_u01BpopvilZIUug-u6aSv08RJeWqPUGhwLjVGXuGlo-OKd0xJKFQg';
+var access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ2bGhxUXczSTF0aDV5b0N2RmNRSkRnYTNRd0g5bllwM2ZhUmFTMlNLM0Nrdzh2dUhzaSIsImp0aSI6IjM1Yzc2NGI2NTQ2MWYyMWQ1NWYyNzBkZmQ0YjE2MWM4NzJjMDQ5ZGIxNWI5NDQ3M2JlMTIwZjEzZGNmNzU5OGRkN2E5YzVkMjg2MDU4YWUzIiwiaWF0IjoxNjc2MDQ0Mzc5LCJuYmYiOjE2NzYwNDQzNzksImV4cCI6MTY3NjA0Nzk3OSwic3ViIjoiIiwic2NvcGVzIjpbXX0.uirM3vhpNf-TG5EtihErUzbALfDWxT3oIkgUcTccKHsYqg5lTO4JpaAnpYLQwG4D0FLwRhr7tL4hq4aDqhVQJg18-LoHc3WaPJYQWhMIodZVJb0pqcTWXATACHjggRk0rteLIed-wmT9PgLKP8tDH-Kwq4isjtu4EHhBiijcHJXPvJjBPQOyY-IjzD0Hsa4bCRZf6pYkSMGhuTED-wZ4kRhB4Eu31H1dTYtdr3XJNIK5QZtBect6J2ixvTz6Xh78F59or0QXDdWwJXd3L6c1SH3I4ExgF976QaP318pFE9hFT8X_rcCYRg7OO6DhS_0wleLIhs2HF7ClpJnKBhuTog';
 
 var petFinderOneURL = 'https://api.petfinder.com/v2/animals/' + dogID;
 fetch(petFinderOneURL, { headers: { 'Authorization': 'Bearer ' + access_token } })
@@ -128,6 +128,56 @@ fetch(petFinderOneURL, { headers: { 'Authorization': 'Bearer ' + access_token } 
 ///Append breed from ninja API to use breed from petfinder API
         //breed.innerText = (data.animal.breeds.primary);
         localStorage.setItem('dogBreed', (data.animal.breeds.primary)); 
+                
         })
         
         //breedDogBreed();
+
+        displayFavorites();
+var favList = $('#favorites');
+function displayFavorites() {
+        var favorites = JSON.parse(localStorage.getItem('favorites'))
+        for (let i = 0; i < favorites.length; i++) {
+                var dogID = favorites[i];
+                var petFinderOneURL = 'https://api.petfinder.com/v2/animals/' + dogID;
+
+                fetch(petFinderOneURL, { headers: { 'Authorization': 'Bearer ' + access_token } })
+                        .then(function (response) {
+                                return response.json();
+                        })
+                        .then(function (data) {
+                                var dogCard = $('<div>');
+                                dogCard.addClass('card dogCards');
+                                dogCard.attr('data-id', data.animal.id);
+                                var dogImg = $('<div>');
+                                dogImg.addClass('card-image')
+                                dogCard.append(dogImg);
+                                var figureEl = $('<figure>');
+                                figureEl.addClass('image');
+                                dogImg.append(figureEl);
+                                imgEl = $('<img>');
+                                imgEl.attr('src', data.animal.primary_photo_cropped
+                                        .small);
+                                figureEl.append(imgEl);
+                                var dogInfo = $('<div>');
+                                dogInfo.addClass('card-content');
+                                dogCard.append(dogInfo);
+                                var dogName = $('<h2>');
+                                dogName.addClass('title is-4')
+                                dogName.text(data.animal.name);
+                                dogInfo.append(dogName);
+                                var listEl = $('<ul>');
+                                dogInfo.append(listEl);var viewBtn = $('<button>');
+                                viewBtn.addClass('button viewBtn');
+                                viewBtn.text("view full bio");
+                                dogCard.append(viewBtn);
+                                favList.append(dogCard);
+
+                        });
+        }
+}
+
+favList.on('click', '.viewBtn', function (){
+        var dogID = $(this).parent().attr("data-id");
+        location.href = './thirdpage.html?' + 'id=' + dogID;
+});
