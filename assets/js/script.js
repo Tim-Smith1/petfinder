@@ -21,7 +21,6 @@ searchBtn.on('click', searchFormSubmit)
 
 function init() {
      if (favorites.length > 0) {
-        console.log(favorites);
         displayFavorites();   
      } else {
         var pTag = $('<p>');
@@ -102,10 +101,8 @@ favList.on('click', '.favBtn', function () {
         $(this).children().children().removeClass('fa-solid');
         if ($(this).children().children().hasClass("fa-regular") !== false) {
                 var dogID = $(this).parent().attr("data-id");
-                var indexOfNonFav = favorites.indexOf(dogID);
-                console.log(indexOfNonFav); 
+                var indexOfNonFav = favorites.indexOf(dogID); 
                 favorites.splice(indexOfNonFav, 1);
-                console.log(favorites);
                 saveFavorites();
                 location.reload();
         }
