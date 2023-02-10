@@ -5,12 +5,18 @@
 // var breed = 'pitbull';
 
 var ninjaDogKey = "oeZRCFASXWqpKLVdC4S1qg==0vv7FTjSoPeONrA6"
-var breed = "pit";
+var breed = localStorage.getItem('dogBreed');
 var energy = "3";
 var ninjaDogURL = "https://api.api-ninjas.com/v1/dogs?name=" + breed;// + '&energy=' + energy;
 
 //var barking = document.getElementById('barking').innerHTML;
 
+// function breedDogBreed() {
+
+//     //converts array to string
+//     breed = localStorage.getItem('dogBreed');
+
+// }
 
 
 fetch(ninjaDogURL, {headers:{'X-Api-Key': 'oeZRCFASXWqpKLVdC4S1qg==0vv7FTjSoPeONrA6'}})
@@ -75,7 +81,7 @@ var searchParamsArr = document.location.search.split('&');
 console.log(searchParamsArr);
 var dogID = searchParamsArr[0].split('=')[1];
 var petFinderKey = "vlhqQw3I1th5yoCvFcQJDga3QwH9nYp3faRaS2SK3Ckw8vuHsi&client_secret=0lu8umPP2fDm04fyPgehlUvX8qObWDU2wT5jMUQH";
-var access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ2bGhxUXczSTF0aDV5b0N2RmNRSkRnYTNRd0g5bllwM2ZhUmFTMlNLM0Nrdzh2dUhzaSIsImp0aSI6ImQyMmUzYThmMmE1NGRjN2NkOTM1NmEwOGQyNTZjOWU5MmI2MTMzOGRmNTRmZDJmNTQ4NzQzYWZmMThjZGJhMDkzZDU3OGRkODYxOTRkMmM4IiwiaWF0IjoxNjc1OTcxNzA0LCJuYmYiOjE2NzU5NzE3MDQsImV4cCI6MTY3NTk3NTMwNCwic3ViIjoiIiwic2NvcGVzIjpbXX0.cLj4NLIa9KigVSd6pI2VeLmpX4g10RU6JZT1NMoTE98tWeWoWHMSohvkA71Q1lOqybPDIpFuk9VJ9kXGltLlJfqqtCueqZuWqnzjBCqbbWiLe24-rMz-ZhbbnSXei-PEpX-auvuX7OQ8lXw3N71ZdNiHvO35MEv_BAPVpI3trjMDOB1mA7gmNbsdmWArV8GJcisnMATGwDv6F3p5EN_r-tPRFSfCp2fmJkFyZXej3Tz8VVATMd6-hEzpwhsmMYckF2hqwGBNQYCWZkKBIL3S37BvTR0pLXJetB9IJVNRSX3-wkx4_-kRjxI4Y1N0zVLFXN8R20IoNQ5v1kBd_aoD4g';
+var access_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ2bGhxUXczSTF0aDV5b0N2RmNRSkRnYTNRd0g5bllwM2ZhUmFTMlNLM0Nrdzh2dUhzaSIsImp0aSI6IjJiNWExYzA2N2Y1YzYxMzZlYzg0N2ZjOWFjN2MyODczOGNhMzc3NDUxZjk3N2E4ZjllZGYxYWNlNDgwNzI0Mzk4MDA0Y2RmYjMzNDMwY2I5IiwiaWF0IjoxNjc2MDQwNjkyLCJuYmYiOjE2NzYwNDA2OTIsImV4cCI6MTY3NjA0NDI5Miwic3ViIjoiIiwic2NvcGVzIjpbXX0.vsMAphOF03Po4eCl-NQy5_z8xa0Ee306YgVUX5O8wfDyEYe0GzgP1wHLSZonAVoDj9qmqucW-OMYNY3Y9iol4Ii3DaXhW-08GPKjq4fRmkLHFzwd8wvhp_TETnqfEhJ7ieud_4Qza0Ypo8Qtj5oLvr7XDpHx8_W49anfJ9S4Zh1Iy1tbJfqSF-PKVx2-KSdK0x6_PnbKKgH-P6vS5MfP7G13Ttcr2lF_0OlYyZPygN4RJ9Dn9DQFOkJxvCMaTjsKv4_2PcRPWOjqIoY5JiYiwnUq1_nD2kJ-_u01BpopvilZIUug-u6aSv08RJeWqPUGhwLjVGXuGlo-OKd0xJKFQg';
 
 var petFinderOneURL = 'https://api.petfinder.com/v2/animals/' + dogID;
 fetch(petFinderOneURL, { headers: { 'Authorization': 'Bearer ' + access_token } })
@@ -85,34 +91,43 @@ fetch(petFinderOneURL, { headers: { 'Authorization': 'Bearer ' + access_token } 
         .then(function (data) {
                 console.log(data);
                 console.log(data.animal.breeds.primary);
+                console.log(data.animal.primary_photo_cropped.medium);
+
+
 
 ///seleted dog center image
-        //var dogImg = document.getElementById('dog-pic')
-        //dogimg.myImg = (data.animal.primary_photo_cropped.medium);
+        $('.dog-image img').attr('src', data.animal.primary_photo_cropped.large);
 
 ////selected dog info
 
+        var dogName = $('#dog-name');
+        dogName.text(data.animal.name);
 
-   
-
-        var dogName = $('<div>');
-        dogName.addClass('card dogName');
-        dogName.attr('data-id', data.animal.name);
-
-        var dogDesc = $('<div>');
-        dogDesc.addClass('card dogDesc');
-        dogDesc.attr = (data.animal.description);
-
-        // var dogBreed = $('');
-        // dogBreed.addClass = ('card dogBreed');
-        // dogBreed.attr = (data.animal.size);
-        // console.log(data.animal.size);
+        var dogInfo = $('#dog-info');
+        var dogDesc = $('<li>');
+        dogDesc.text(data.animal.description);
+        dogInfo.append(dogDesc);
         
+        var dogBreed = $('<li>');
+        dogBreed.addClass = ('card dogBreed');
+        dogBreed.text(data.animal.breeds.primary);
+        dogInfo.append(dogBreed);
+                
+        var dogEmail = $('<li>');
+        dogEmail.text(data.animal.contact.email);
+        dogInfo.append(dogEmail);
 
+        var dogPhone = $('<li>');
+        dogPhone.text(data.animal.contact.phone);
+        dogInfo.append(dogPhone);
 
+        var dogCity = $('<li>');
+        dogCity.text(data.animal.contact.address.city)
+        dogInfo.append(dogCity);
 
-
+///Append breed from ninja API to use breed from petfinder API
+        //breed.innerText = (data.animal.breeds.primary);
+        localStorage.setItem('dogBreed', (data.animal.breeds.primary)); 
         })
-
-
         
+        //breedDogBreed();
