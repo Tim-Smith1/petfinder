@@ -18,7 +18,6 @@ function searchFormSubmit(event) {
 
 searchBtn.on('click', searchFormSubmit)
 
-
 function init() {
      if (favorites.length > 0) {
         displayFavorites();   

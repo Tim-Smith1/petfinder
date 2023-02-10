@@ -2,8 +2,6 @@
 var ninjaDogKey = "oeZRCFASXWqpKLVdC4S1qg==0vv7FTjSoPeONrA6"
 var breed;
 
-
-
 function dogBreedInfo(){
 var ninjaDogURL = "https://api.api-ninjas.com/v1/dogs?name=" + breed;
 fetch(ninjaDogURL, {headers:{'X-Api-Key': 'oeZRCFASXWqpKLVdC4S1qg==0vv7FTjSoPeONrA6'}})
@@ -11,8 +9,7 @@ fetch(ninjaDogURL, {headers:{'X-Api-Key': 'oeZRCFASXWqpKLVdC4S1qg==0vv7FTjSoPeON
             return response.json();
         })
         .then(function (data) {
-        console.log(data);
-
+        
         // column 3 image
         var myImg = JSON.stringify(data[0].image_link);
         var imageContainer = document.getElementById('image-link');
@@ -49,14 +46,9 @@ fetch(petFinderOneURL, { headers: { 'Authorization': 'Bearer ' + access_token } 
                 return response.json();
         })
         .then(function (data) {
-                console.log(data);
+                
                 breed = (data.animal.breeds.primary);
-                console.log(breed);
-                dogBreedInfo();
-                console.log(data.animal.primary_photo_cropped.medium);
-
-
-
+                
 ///seleted dog center image
         $('.dog-image img').attr('src', data.animal.primary_photo_cropped.large);
 
