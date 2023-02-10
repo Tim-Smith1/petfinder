@@ -3,12 +3,19 @@ body{
     color: white;
     font-size: 25px;
     font-family: 'Gentium Book Plus', serif;
-   
+
+    height: 100%;
+    
+}
+
+section{
+  /* display: inline-grid; */
+
 }
 
 .navbar{
     background-color: #ad62aa;
- 
+
 }
 
 .subtitle {
