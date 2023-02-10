@@ -50,7 +50,7 @@ fetch(petFinderOneURL, { headers: { 'Authorization': 'Bearer ' + access_token } 
         .then(function (data) {
                 
                 breed = (data.animal.breeds.primary);
-                
+                dogBreedInfo();
 ///seleted dog center image
         $('.dog-image img').attr('src', data.animal.primary_photo_cropped.large);
 
