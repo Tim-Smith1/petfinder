@@ -1,12 +1,9 @@
-
 var searchParamsArr = document.location.search.split('&');
 console.log(searchParamsArr);
 var dogSize = searchParamsArr[0].split('=')[1];
 var dogAge = searchParamsArr[1].split('=')[1];
 var gender = searchParamsArr[2].split('=')[1];
 var zipCode = searchParamsArr[3].split('=')[1];
-
-
 
 var petFinderURL = 'https://api.petfinder.com/v2/animals?type=dog';
 
@@ -90,7 +87,6 @@ function fetchDogList(dogSize, dogAge, gender, zipCode){
 }
 
 
-
 var favorites = JSON.parse(localStorage.getItem('favorites'))||[];
 var searchResults = $('#searchResults');
 searchResults.on('click', '.favBtn', function () {
@@ -110,7 +106,6 @@ searchResults.on('click', '.favBtn', function () {
 function saveFavorites() {
         localStorage.setItem("favorites", JSON.stringify(favorites));
 }
-
 
 searchResults.on('click', '.viewBtn', function (){
         var dogID = $(this).parent().attr("data-id");
