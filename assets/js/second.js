@@ -18,7 +18,6 @@ var searchBtn = $('#formBtn');
 function searchFormSubmit(event) {
         event.preventDefault();
         var zipCode = $('.zipcode').val();
-         console.log(zipCode);
         var dogAge = $('#dog-age').val();
         var dogSize = $('#dog-size').val();
         var gender = $('#gender').val();
@@ -35,7 +34,6 @@ function fetchDogList(dogSize, dogAge, gender, zipCode){
                 return response.json();
         })
         .then(function (data) {
-                console.log(data.animals);
                 for (var i = 0; i < data.animals.length; i++) {
                         if (data.animals[i].primary_photo_cropped !== null) {
                                 var searchResults = $('#searchResults');
@@ -94,10 +92,8 @@ function fetchDogList(dogSize, dogAge, gender, zipCode){
 var favorites = JSON.parse(localStorage.getItem('favorites'))||[];
 var searchResults = $('#searchResults');
 searchResults.on('click', '.favBtn', function () {
-        var favBtn = $(this).children().children();
         $(this).children().children().toggleClass('fa-solid');
         if ($(this).children().children().hasClass("fa-solid") !== false) {
-                console.log("true");
                 var dogID = $(this).parent().attr("data-id");
                 favorites.push(dogID);
                 saveFavorites();
@@ -120,25 +116,7 @@ searchResults.on('click', '.viewBtn', function (){
 });
 
 
-  
 
-
-
-
-
-
-
-
-
-
-    // dogFacts = {
-        //     breeds: data.animals[i].breeds,
-        //     attributes: data.animals[i].attributes,
-        //     contact: data.animals[i].contact,
-        //     name: data.animals[i].name,
-        //     picture: data.animals[i].primary_photo_cropped.medium,
-        //     environment: data.animals[i].environment,
-        // }
 
 
 
