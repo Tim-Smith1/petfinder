@@ -23,8 +23,8 @@ function searchFormSubmit(event) {
         var dogSize = $('#dog-size').val();
         var gender = $('#gender').val();
 
-        // location.href = './secondpage.html?' + 'size=' + dogSize + '&age=' + dogAge + '&gender=' + gender + '&location=' + zipCode;
-        fetchDogList(dogSize, dogAge, gender, zipCode)
+        location.href = './secondpage.html?' + 'size=' + dogSize + '&age=' + dogAge + '&gender=' + gender + '&location=' + zipCode;
+        
 }
 
 searchBtn.on('submit', searchFormSubmit)
@@ -41,7 +41,7 @@ function fetchDogList(dogSize, dogAge, gender, zipCode){
                                 var searchResults = $('#searchResults');
                                 var dogCard = $("<div>");
                                 dogCard.addClass('card dogCards');
-                                dogCard.attr('data-id', data.animals[i].id);
+                                dogCard.html('data-id', data.animals[i].id);
                                 var dogImg = $('<div>');
                                 dogImg.addClass('card-image')
                                 dogCard.append(dogImg);
