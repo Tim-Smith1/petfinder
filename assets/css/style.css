@@ -3,12 +3,14 @@ body{
     color: white;
     font-size: 25px;
     font-family: 'Gentium Book Plus', serif;
+
     height: 100%;
     
 }
 
 .navbar{
     background-color: #ad62aa;
+
 }
 
 .subtitle {
@@ -22,15 +24,20 @@ body{
     flex-shrink: 1;
     padding: 20px;
 }
-
-
-
 .card{
 
 margin: 10px;
 box-shadow: #22313f 10px 5px;
 
 }
+
+
+.subtitle{
+  color: white;
+  font-size: larger;
+}
+
+
 
 .logo {
     width: 200px;
@@ -45,7 +52,7 @@ box-shadow: #22313f 10px 5px;
   display: flex;
   flex-wrap: wrap;
   font: message-box;
- margin: 30px;
+  margin: 30px;
   justify-content: space-evenly;
   gap: 1em;
   border: #000000;
@@ -55,6 +62,7 @@ box-shadow: #22313f 10px 5px;
 }
 
   html, head, body {
+    
     width: 100%;
     max-height: 100%;
     margin: 0;
