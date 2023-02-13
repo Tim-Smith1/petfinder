@@ -1,5 +1,5 @@
 # petfinder
-[deployed application](https://nuvirtfsfft01-opj2621.slack.com/archives/C04NXPBE0Q2/p1675974002512699)
+[deployed application](https://tim-smith1.github.io/petfinder/))
 
 
 ## Description
