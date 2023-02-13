@@ -72,4 +72,6 @@ box-shadow: #22313f 10px 5px;
     padding: 0;
   }
 
- 
+ .control {
+  margin: 3px;
+ }
