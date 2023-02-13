@@ -7,10 +7,6 @@ body{
     
 }
 
-section{
-  /* display: inline-grid; */
-}
-
 .navbar{
     background-color: #ad62aa;
 }
@@ -25,7 +21,6 @@ section{
     flex-grow: 0;
     flex-shrink: 1;
     padding: 20px;
-    margin: 20px;
 }
 
 
@@ -46,12 +41,10 @@ box-shadow: #22313f 10px 5px;
     
     
   }
-#searchResults {
+#searchResults, #favorites {
   display: flex;
   flex-wrap: wrap;
   font: message-box;
-  /* width: 400px;
-  margin: 50px; */
  margin: 30px;
   justify-content: space-evenly;
   gap: 1em;
@@ -60,10 +53,6 @@ box-shadow: #22313f 10px 5px;
 
   
 }
- 
-   /* .dogCards {
-    width: 50%;
-  } */
 
   html, head, body {
     width: 100%;
@@ -74,4 +63,12 @@ box-shadow: #22313f 10px 5px;
 
  .control {
   margin: 3px;
+ }
+
+ .select {
+  width: 100%;
+
+ }
+ #dog-age, #dog-size, #gender {
+width: 100%;
  }

@@ -1,81 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home PAGE</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <script src="https://kit.fontawesome.com/dccac98f90.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home PAGE</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <script src="https://kit.fontawesome.com/dccac98f90.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <nav class="navbar " role="navigation" aria-label="main navigation">
-        <div class="navbar-brand" ><img src="./assets/PetsNearU-removebg-preview.png" class="logo">
-        
+  <nav class="navbar " role="navigation" aria-label="main navigation">
+    <div class="navbar-brand"><img src="./assets/PetsNearU-removebg-preview.png" class="logo">
+
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+    </div>
+  </nav>
+  <div class="columns">
+    <div class="column is-one-quarter" style="border-style: double;">
+      <section class="block" id="search-form">
+        <h2 class="subtitle">Start your search here:</h2>
+        <div class="control">
+          <input class="input" type="text" placeholder="zip code">
         </div>
-      
-        <div id="navbarBasicExample" class="navbar-menu">
-        </div>
-      </nav>
-    <div class="columns">
-       <div class="column is-one-third" style="border-style: double;">
-          <section class="block" id="search-form">
-            <h2 class="subtitle">Start your search here:</h2>
-            <div class="control">
-            <input class="input" type="text" placeholder="zip code"></div>
-            <div class="control">
-            <div class="select">
-                <select id="dog-age">
-                  <option>Select age</option>
-                  <option value="baby">Baby</option>
-                  <option value="young">Young</option>
-                  <option val="adult">Adult</option>
-                  <option></option>
-                </select>
-            </div></div>
-            <div class="control">
-            <div class="select">
-                <select id="dog-size">
-                  <option>Select size</option>
-                  <option value="small">Small</option>
-                  <option value="medium">Medium</option>
-                  <option value="large">Large</option>
-                </select>
-            </div></div>
-            <div class="control">
-            <div class="select">
-                <select id="gender">
-                  <option>Select gender</option>
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                </select>
-            </div>
+        <div class="control">
+          <div class="select">
+            <select id="dog-age">
+              <option>Select age</option>
+              <option value="baby">Baby</option>
+              <option value="young">Young</option>
+              <option val="adult">Adult</option>
+              <option></option>
+            </select>
           </div>
-          <div class="control">
-            <button id="searchBtn" class="button" type="submit">Search</button>
+        </div>
+        <div class="control">
+          <div class="select">
+            <select id="dog-size">
+              <option>Select size</option>
+              <option value="small">Small</option>
+              <option value="medium">Medium</option>
+              <option value="large">Large</option>
+            </select>
           </div>
-          </section>
         </div>
-        <div class="column is-two-thirds" style="display: flex;">
-          <section>
-            <h2 class="subtitle">My favorites:</h2>
-            <div id="favorites">
-
-            </div>
-          </section>
+        <div class="control">
+          <div class="select">
+            <select id="gender">
+              <option>Select gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
         </div>
-      </div>
-      
+        <div class="control">
+          <button id="searchBtn" class="button" type="submit">Search</button>
+        </div>
+      </section>
+    </div>
+    <div class="column is-three-quarters" style="display: flex;">
+      <section>
+        <h2 class="subtitle">My favorites:</h2>
+        <div id="favorites">
 
-   
-   
-   
+        </div>
+      </section>
+    </div>
+  </div>
 
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+    integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-
-    <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/script.js"></script>
 
 </body>
+
 </html>
