@@ -8,11 +8,6 @@ body{
     
 }
 
-section{
-  /* display: inline-grid; */
-
-}
-
 .navbar{
     background-color: #ad62aa;
 
@@ -28,7 +23,6 @@ section{
     flex-grow: 0;
     flex-shrink: 1;
     padding: 20px;
-    margin: 20px;
 }
 .card{
 
@@ -58,7 +52,7 @@ box-shadow: #22313f 10px 5px;
   display: flex;
   flex-wrap: wrap;
   font: message-box;
-   margin: 30px;
+  margin: 30px;
   justify-content: space-evenly;
   gap: 1em;
   border: #000000;
@@ -66,7 +60,7 @@ box-shadow: #22313f 10px 5px;
 
   
 }
-  
+
   html, head, body {
     
     width: 100%;
@@ -75,4 +69,14 @@ box-shadow: #22313f 10px 5px;
     padding: 0;
   }
 
- 
+ .control {
+  margin: 3px;
+ }
+
+ .select {
+  width: 100%;
+
+ }
+ #dog-age, #dog-size, #gender {
+width: 100%;
+ }
